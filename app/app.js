@@ -18,8 +18,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
+// serving static files
+app.use(express.static(__dirname + '/public'));
+app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+app.use('/js', express.static(path.join(__dirname, '/node_modules/chart/dist')));
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
 app.get('/users', (req, res) => {

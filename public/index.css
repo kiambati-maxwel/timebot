@@ -9,3 +9,7 @@ table, th, td {
 }table th {
     padding: 20px;
 }
+.my-chart-container{
+    width: 400px;
+    height: 300px;
+}

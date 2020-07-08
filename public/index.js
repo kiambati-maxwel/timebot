@@ -1,5 +1,8 @@
 /* eslint-disable */
 import css from './index.css';
+import chart from '../node_modules/chart.js';
+import jquery from 'jquery/dist/jquery';
+import mychart from './mychart';
 console.log("bundled bundled all files");
 console.log("source map test");
 

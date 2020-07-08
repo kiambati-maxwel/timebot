@@ -6,3 +6,4 @@ const set_mode = (mode = 'dev') => {
   return app_mode;
 }
 export default set_mode;
+
