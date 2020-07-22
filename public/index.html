@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#6FD9E7"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>StudyBot</title>
+  <link rel="manifest" href="/config/pwa.webmanifest">
+  <link rel="apple-touch-icon" href="/images/icon/logo512-2.png">
+	<link rel="stylesheet" href="/styles/reset.css">
+	<link rel="stylesheet" href="/styles/hamberger.css">
+	<link rel="stylesheet" href="/styles/index.css">
+	<link rel="stylesheet" href="/styles/add-mdl-form.css">
+	<link rel="stylesheet" href="/styles/model.css">
+	<link rel="stylesheet" href="/styles/mediaquery.css">
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<figure class="logo">
+			<a href="/model"><img src="/images/logo7.svg" alt="timebot"></a>
+		</figure>
+	</header>
+
+	<!-- searchbar icon -->
+	<input type="checkbox" id="show-search-bar" autofocus>
+	<label for="show-search-bar" class="show-s-bar" id="search-icon">
+		<img src="/images/search36px.svg" alt="<>">
+	</label>
+
+	<!-- close searchbar icon -->
+	<label class="close-search-bar" for="show-search-bar"> <img src="../images/clear-black-36dp.svg" alt="clear"></label>
+	<form novalidate class="top-search-bar" id="search-bar">
+		<input type="text" id="search-model" class="form-control" placeholder="search" autofocus />
+	</form>
+
+	<!-- hamburger side bar control -->
+	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+	<label for="openSidebarMenu" class="sidebarIconToggle">
+		<div class="spinner diagonal part-1"></div>
+		<div class="spinner horizontal"></div>
+		<div class="spinner diagonal part-2"></div>
+	</label>
+
+	<!-- side navigation-->
+	<nav id="sidebarMenu">
+		<a href="">logout <span class="logout-label"></span></a>
+
+		<div class="side-menu-container">
+
+			<section class="stats-sec">
+
+				<!-- graph canvas -->
+				<div class="stats">
+					<canvas id="myChart" width="100%"></canvas>
+				</div>
+
+			</section>
+
+			<!-- stats interprated section -->
+			<div id="modelStats" class="add-visibility">
+				<h3>Today : <span>2hr 45 min </span></h3>
+				<ul>
+
+					<li>math<strong>:</strong> <span>1hr 45min</span></li>
+
+				</ul>
+
+				<h3> T-time : <span> 75 hr 22.80 min </span></h3>
+
+				<ul>
+					<li> NPM <strong>:</strong>5hr 10 min <span></li>
+					<li> Javascript <strong>:</strong>5hr 10 min <span></li>
+					<li> Udacity <strong>:</strong>5hr 10 min <span></li>
+					<li> PWA <strong>:</strong>19hr 10 min <span></li>
+					<li> Typescript <strong>:</strong>5hr 10 min <span></li>
+					<li> Pluralsite <strong>:</strong>5hr 10 min <span></li>
+					<li> Python <strong>:</strong>5hr 0 min <span></li>
+					<li> Jibrish <strong>:</strong>3hr 10 min <span></li>
+					<li> Fetch API <strong>:</strong>5hr 10 min <span></li>
+					<li> IOT<strong>:</strong>5hr 10 min <span></li>
+					<li> Machine Learning <strong>:</strong>15hr 10 min <span></li>
+				</ul>
+			</div>
+
+			<!-- stats interprated show btn -->
+			<button class="show-stats" onclick="clearElement(modelStats)">Statistics</button>
+			<footer>
+				<small>&copy; max 2020</small>
+			</footer>
+
+		</div>
+
+	</nav>
+
+
+	<!-- main section -->
+
+	<main class="group">
+		<section class="container-dashboard ">
+			<!-- learning models sections -->
+			<section class="ln-models" id="lnmodels">
+
+				<h1 class="model model-1 is-visible">
+					<a href="">IBM</a>
+				</h1>
+				<h1 class="model model-2 is-visible">
+					<a href="">Javascript</a>
+				</h1>
+				<h1 class="model model-3 is-visible">
+					<a href="">Go Lang</a>
+				</h1>
+				<h1 class="model model-4 is-visible">
+					<a href="">Udacity</a>
+				</h1>
+
+				<h1 class="model model-1 is-visible">
+					<a href="">IBM Internet of things</a>
+				</h1>
+				<h1 class="model model-1 is-visible">
+					<a href="">Mongo DB</a>
+				</h1>
+				<h1 class="model model-2 is-visible">
+					<a href="">Typescript</a>
+				</h1>
+				<h1 class="model model-3 is-visible">
+					<a href="">Python</a>
+				</h1>
+				<h1 class="model model-4 is-visible">
+					<a href="">Fetch API</a>
+				</h1>
+
+
+			</section>
+
+			<!-- add ln models form -->
+
+			<form action="/lnmodels/addmdl" method="POST" id="add-model-form" class="add-visibility">
+
+				<input type="text" name="name" placeholder="enter name" id="modelnameinput">
+
+				<input type="submit" value="submit">
+
+			</form>
+
+			<button id="add-mdl" onclick="clearElement(addForm)">+</button>
+
+	</main>
+
+	<script src="/jss/Chart.min.js"></script>
+	<script src="/js/index.js" type="module"></script>
+	<script src="/js/addform.js"></script>
+
+</body>
+
+</html>

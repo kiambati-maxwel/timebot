@@ -1,0 +1,114 @@
+
+.sub-stats-sec{
+  position: absolute;
+  z-index: 22;
+  width: 100%;
+  top: 15vh;
+  background-color: aliceblue;
+  height: 80vh;
+    
+}
+#clear-timer-btn{
+  border: none;
+  background: none;
+  margin-left: 85%;
+  margin-top: 7%;
+}
+/* timer */
+.sub-timer {
+
+
+}
+
+.sub-timer h1 {
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 12rem;
+  width: 12rem;
+  border: solid #92B4E6 1px;
+  border-radius: 50%;
+  text-align: center;
+  color: rgb(31, 31, 31);
+  font-size: 2rem;
+}
+
+
+.play-pause {
+  text-align: center;
+  padding-left: 9px;
+}
+
+.play-pause label {
+  display: block;
+  box-sizing: border-box;
+
+  width: 0;
+  height: 33px;
+
+  cursor: pointer;
+
+  border-color: transparent transparent transparent #92B4E6;
+  transition: 100ms all ease;
+  will-change: border-width;
+
+  border-radius: 10%;
+
+  /* // paused state */
+  border-style: double;
+  border-width: 0px 0 0px 20px;
+
+}
+.play-pause label:hover {
+   border-color: transparent transparent transparent rgb(133, 61, 97);
+}
+.play-pause input[type='checkbox'] {
+  visibility: hidden;
+}
+
+
+.play-pause input:checked+label {
+  /* // play state */
+  border-style: solid;
+  border-width: 20px 0 20px 33px;
+}
+
+#savetimebtn,
+#resetbtn {
+  position: absolute;
+  top: 65%;
+  border: none;
+  font-size: 14px;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  background-color: #92B4E6;
+  color: black;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+#savetimebtn:hover,
+#resetbtn:hover {
+  background-color: rgb(133, 61, 97);
+}
+
+#savetimebtn {
+  left: 10%;
+}
+
+#resetbtn {
+  right: 10%;
+}
+
+#subModelNameTimer {
+  text-align: center;
+  padding-left: 13%;
+  height: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 18px;
+}

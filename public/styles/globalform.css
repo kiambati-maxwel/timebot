@@ -1,0 +1,67 @@
+/* ==================form================ */
+
+.my-form {
+    padding: 22px;
+    background: transparent;
+    border: 0;
+    padding: 10px;
+    font-size: 1.3rem;
+    width: 100%;
+}
+
+.my-form label {
+    display: block;
+    margin: 0;
+    text-align: left;
+    padding-left: 12%;
+    display: none;
+}
+
+.my-form input{
+    border: 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    width: 80%;
+    letter-spacing: 1px;
+}
+
+/* ==================button================== */
+.btn-form {
+    padding: 8px 15px 8px 15px;
+    background-color: #009688;
+    color: black;
+    letter-spacing: .5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    border-radius: 60px;
+    border: none;
+
+}
+
+.btn-form:hover {
+    background-color: #009688;
+    cursor: pointer;
+}
+
+/* =============== error ============= */
+.error{
+    background-color: rgba(187, 101, 101, 0.719);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.if-account{
+    padding-top: 20px;
+    color: white;
+}
+
+.if-account a{
+    color: green;
+    text-decoration: none;
+}
+
+

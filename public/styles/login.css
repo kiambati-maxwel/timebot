@@ -1,0 +1,16 @@
+/* ==================button================== */
+.login-form .my-form h1{
+    margin-bottom: 3rem;
+}
+.login-form .my-form {
+    height: 70%;
+}
+.login-form .if-account{
+    text-align: left;
+    padding-left: 12%;
+    font-weight: 600;
+}
+
+.login-form .my-form input[type="submit"]{
+    width: 50%;
+}

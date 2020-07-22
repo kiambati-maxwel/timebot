@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>StudyBot</title>
+	<link rel="stylesheet" href="/styles/reset.css">
+	<link rel="stylesheet" href="/styles/hamberger.css">
+	<link rel="stylesheet" href="/styles/index.css">
+	<link rel="stylesheet" href="/styles/add-mdl-form.css">
+	<link rel="stylesheet" href="/styles/model.css">
+	<link rel="stylesheet" href="/styles/timer.css">
+	<link rel="stylesheet" href="/styles/mediaquery.css">
+
+</head>
+
+<body>
+
+	<!-- top sub-model header -->
+	<header>
+		<figure class="logo">
+			<a href="/"><img src="/images/logo7.svg" alt="timebot"></a>
+		</figure>
+	</header>
+
+	<!-- submodel search icon -->
+	<input type="checkbox" id="show-search-bar">
+	<label for="show-search-bar" class="show-s-bar" id="search-icon">
+		<img src="/images/search36px.svg" alt="<>">
+	</label>
+
+	<!-- submodel close search bar icon -->
+	<label class="close-search-bar" for="show-search-bar">
+		<img src="/images/clear-black-36dp.svg" alt="clear">
+	</label>
+	<form novalidate class="top-search-bar" id="search-bar">
+		<input type="search" id="search-model" class="form-control" placeholder="search" autofocus />
+	</form>
+
+	<!--submodel  hamburger section-->
+	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+	<label for="openSidebarMenu" class="sidebarIconToggle">
+		<div class="spinner diagonal part-1"></div>
+		<div class="spinner horizontal"></div>
+		<div class="spinner diagonal part-2"></div>
+	</label>
+
+	<!-- hambagar side navigation-->
+	<nav id="sidebarMenu">
+		<a href="">logout <span class="logout-label"></span></a>
+
+		<div class="side-menu-container sub-mdl-side-menu">
+
+			<div id="sub-model-stats" class="add-visibility">
+				<h3>Today : <span>2hr 45 min </span></h3>
+				<ul>
+
+					<li>math<strong>:</strong> <span>1hr 45min</span></li>
+
+				</ul>
+
+				<h3> T-time : <span> 75 hr 22.80 min </span></h3>
+
+				<ul>
+					<li> NPM <strong>:</strong>5hr 10 min <span></li>
+					<li> Javascript <strong>:</strong>5hr 10 min <span></li>
+					<li> Udacity <strong>:</strong>5hr 10 min <span></li>
+					<li> PWA <strong>:</strong>19hr 10 min <span></li>
+					<li> Typescript <strong>:</strong>5hr 10 min <span></li>
+					<li> Pluralsite <strong>:</strong>5hr 10 min <span></li>
+					<li> Python <strong>:</strong>5hr 0 min <span></li>
+					<li> Jibrish <strong>:</strong>3hr 10 min <span></li>
+					<li> Fetch API <strong>:</strong>5hr 10 min <span></li>
+					<li> IOT<strong>:</strong>5hr 10 min <span></li>
+					<li> Machine Learning <strong>:</strong>15hr 10 min <span></li>
+				</ul>
+			</div>
+
+			<!-- submodel starts show btn -->
+			<button class="show-stats show-stats-submodels" onclick="clearElement(submodelstats)">Statistics</button>
+			<footer>
+				<small>&copy; max 2020</small>
+			</footer>
+
+		</div>
+
+	</nav>
+
+
+	<!-- main section -->
+
+	<main class="group">
+		<section class="container-dashboard ">
+			<section class="ln-models sub-modules" id="lnmodels">
+
+				<h1 class="model model-1 is-visible">
+					<a href="">IBM</a>
+				</h1>
+				<h1 class="model model-2 is-visible">
+					<a href="">Javascript</a>
+				</h1>
+				<h1 class="model model-3 is-visible">
+					<a href="">Go Lang</a>
+				</h1>
+				<h1 class="model model-4 is-visible">
+					<a href="">Udacity</a>
+				</h1>
+
+				<h1 class="model model-1 is-visible">
+					<a href="">IBM Internet of things</a>
+				</h1>
+				<h1 class="model model-1 is-visible">
+					<a href="">Mongo DB</a>
+				</h1>
+				<h1 class="model model-2 is-visible">
+					<a href="">Typescript</a>
+				</h1>
+				<h1 class="model model-3 is-visible">
+					<a href="">Python</a>
+				</h1>
+				<h1 class="model model-4 is-visible">
+					<a href="">Fetch API</a>
+				</h1>
+
+			</section>
+
+			<!-- submode add form -->
+
+			<form action="/lnmodels/addmdl" method="POST" id="submodel-form" class="add-visibility">
+
+				<input type="text" name="name" placeholder="enter name" id="modelnameinput">
+
+				<input type="submit" value="submit">
+
+			</form>
+
+			<button id="add-submodel" onclick="clearElement(addsubmodelform)">+</button>
+	</main>
+
+	<!-- sub model timmer -->
+	<section class="sub-stats-sec">
+		<button id="clear-timer-btn" onclick="clearElement(clearTimerBtn)"><img src="../images/clear-black-36dp.svg"
+				alt="clear-timer-btn"></button>
+		<p id="subModelNameTimer"></p>
+		<div class="sub-timer">
+			<h1 class="timer" id="time-display">00 : 00 : 00</h1>
+
+			<div class="play-pause">
+				<input type="checkbox" id="playPauseCheckbox" name="playPauseCheckbox" class="setReset" checked />
+				<label for="playPauseCheckbox"></label>
+			</div>
+
+			<button id="savetimebtn" onclick="totalTimeSpent()">save</button>
+			<button id="resetbtn">reset</button>
+
+		</div>
+	</section>
+
+	<script src="/js/addform.js"></script>
+	<script src="/js/subindex.js" type="module"></script>
+	<script src="/js/filter_names.js"></script>
+
+</body>
+
+</html>

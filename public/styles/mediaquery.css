@@ -1,0 +1,260 @@
+/* main media query  */
+@media screen and (min-width:830px) {
+
+    /* --- main reset css3 --- */
+    #submodel-form,
+    #add-model-form {
+        width: 25%;
+        margin-left: 13%;
+        margin-top: 19vh;
+    }
+
+    .app-view {
+        width: 70%;
+    }
+
+    .register-form,
+    .login-form {
+        width: 60%;
+    }
+
+    .container-dashboard {
+        width: 30%;
+        float: left;
+        height: 65vh;
+        margin-left: 15%;
+        margin-top: 3rem;
+    }
+
+    #lnmodels {
+        position: unset;
+        border-radius: 20px;
+        height: 65vh;
+        float: left;
+        position: relative;
+        padding: 5px;
+        overflow: auto;
+        margin-top: 3vh;
+    }
+
+
+    .model {
+        height: unset;
+        padding: 10px;
+        width: 60%;
+    }
+
+    /* transitions */
+
+    .model.is-visible {
+        margin-left: 40%;
+    }
+
+    .model.is-visible:first-child {
+        margin-left: 5%;
+    }
+
+    .model.is-visible:nth-child(2) {
+        margin-left: 13%;
+    }
+
+    .model.is-visible:nth-child(3n) {
+        margin-left: 26%;
+    }
+
+    .model.is-visible:nth-child(4) {
+        margin-left: 13%;
+
+    }
+
+    .model.is-visible:nth-child(5) {
+        margin-left: 10%;
+
+    }
+
+    .model.is-visible:nth-child(6) {
+        /* margin-left: 60%; */
+        margin-right: 10%;
+    }
+
+    .model.is-visible:nth-child(7) {
+        margin-left: 40%;
+        margin-right: 20%;
+
+    }
+
+    .model.is-visible:nth-child(8) {
+        margin-left: 30%;
+
+    }
+
+    .model.is-visible:nth-child(9) {
+        margin-left: 20%;
+    }
+
+    .model.is-visible::-webkit-scrollbar {
+        animation-play-state: paused;
+    }
+
+    #add-submodel,
+    #add-mdl {
+        right: unset;
+        left: 9%;
+        /* top: 47vh; */
+        top: 18.5rem
+    }
+
+    #sidebarMenu {
+        position: unset;
+        transform: unset;
+        width: 47%;
+        position: absolute;
+        height: 70vh;
+        top: 6rem;
+        right: 5%;
+        padding: 10px;
+        z-index: 5;
+        background: unset;
+    }
+
+    #modelStats {
+        position: absolute;
+        height: 50vh;
+        overflow: auto;
+        top: 2rem;
+        right: 5%;
+        background: linear-gradient(#75c8d3 0%, #88DFEA 100%);
+        top: 0;
+    }
+
+    #sub-model-stats {
+        position: fixed;
+        left: 7%;
+        height: 50vh;
+        background: linear-gradient(#75c8d3 0%, #88DFEA 100%);
+        margin-top: 7vh;
+        z-index: 40;
+        width: 40%;
+        overflow: uset;
+    }
+
+    .stats-sec {
+        background-color: unset;
+    }
+
+    .show-stats {
+        display: unset;
+        margin-top: 20vh;
+        margin-left: 42%;
+        padding: 5px;
+        width: 7rem;
+        font-size: 1.4rem;
+        border-radius: 20px;
+        border: none;
+        background: linear-gradient(#75c8d3 0%, #88DFEA 100%);
+        color: black;
+        cursor: poipointernter;
+    }
+
+    .show-stats-submodels {
+        margin-top: 30vh;
+        margin-left: 45%;
+    }
+
+    /* graph */
+    .stats {
+        width: 100%;
+        padding-top: 8vh;
+    }
+
+    #sidebarMenu>a {
+        display: none;
+    }
+
+    #sidebarMenu footer {
+        display: none;
+    }
+
+    .sidebarIconToggle {
+        display: none;
+    }
+
+    /* scroll-behaviour */
+    html {
+        scroll-behavior: smooth;
+
+    }
+
+    /* width */
+    #sub-model-stats::-webkit-scrollbar,
+    #modelStats::-webkit-scrollbar,
+    .ln-models::-webkit-scrollbar {
+        width: 10px;
+
+    }
+
+    /* Track */
+    #sub-model-stats::-webkit-scrollbar-track,
+    #modelStats::-webkit-scrollbar-track,
+    .ln-models::-webkit-scrollbar-track {
+        background: #ececec;
+
+        /* box-shadow: inset 0 0 5px #5F93C0; */
+    }
+
+    /* Handle */
+    #sub-model-stats::-webkit-scrollbar-thumb,
+    #modelStats::-webkit-scrollbar-thumb,
+    .ln-models::-webkit-scrollbar-thumb {
+        background: #6FD9E7;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    #sub-model-stats::-webkit-scrollbar-thumb:hover,
+    #modelStat::-webkit-scrollbar-thumb:hover,
+    .ln-models::-webkit-scrollbar-thumb:hover {
+        background: rgb(200, 200, 200);
+    }
+
+
+    .sub-stats-sec {
+        position: fixed;
+        z-index: 19;
+        width: 45%;
+        top: 15vh;
+        background-color: white;
+        height: 60vh;
+        right: 5%;
+
+
+    }
+
+    .sub-timer h1 {
+        margin-top: 6%;
+    }
+
+    #clear-timer-btn {
+        display: none;
+    }
+
+    #savetimebtn,
+    #resetbtn {
+        /* top: 80% */
+        height: 3rem;
+        width: 3rem;
+        font-size: 1rem;
+    }
+
+    #savetimebtn {
+        left: 26%;
+
+    }
+
+    #resetbtn {
+        right: 25%;
+
+    }
+
+
+}

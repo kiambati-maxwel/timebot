@@ -1,0 +1,20 @@
+/* ==================button================== */
+.register-form{
+    height: 85vh;
+}
+.register-form .my-form h1{
+    margin-bottom: 2rem;
+}
+.register-form .my-form {
+    height: 90%;
+}
+.register-form .if-account{
+    text-align: left;
+    padding-left: 12%;
+    font-weight: 600;    
+}
+
+.register-form .my-form input[type="submit"]{
+    width: 50%;
+    margin-bottom: .9rem;
+}

@@ -1,10 +1,23 @@
 /* eslint-disable */
-import css from './index.css';
-import chart from '../node_modules/chart.js';
-import jquery from 'jquery/dist/jquery';
-import mychart from './mychart';
+import { get_users, get_name } from '/js/api.js';
+import { chartinit } from '/js/mychart.js';
+import { filterModels } from '/js/filter_names.js';
+
+chartinit();
+filterModels();
+// import jquery from '../node_modules/jquery/dist/jquery';
 console.log("bundled bundled all files");
 console.log("source map test");
+
+get_users().then(data => {
+  console.log(data);
+});
+
+window.addEventListener('DOMContentLoaded', async () => {
+  await get_name().then(data => {
+    console.log(data);
+  })
+});
 
 
 

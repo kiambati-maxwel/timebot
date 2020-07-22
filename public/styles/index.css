@@ -1,0 +1,141 @@
+/* --- header --- */
+
+header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    /* background-color: #2A99ED; */
+    /* background-color: #92B4E6; */
+    background-color: #6FD9E7;
+    /* theme color test */
+    /* background: linear-gradient(#2A99ED 0%,#2a98edd7 100%); */
+    position: fixed;
+    height: 15vh !important;
+    overflow: hidden;
+    top: 0;
+    z-index: 10;
+    padding-top: 0rem;
+}
+
+/* --- logo --- */
+
+.logo {
+    width: 150px;
+    height: 160px;
+    margin-left: 7%;
+    margin-top: .5rem;
+}
+
+
+/* --- search ---*/
+
+.top-search-bar {
+    position: absolute;
+    display: none;
+    left: 0;
+    z-index: 101;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+.top-search-bar input {
+    width: 100%;
+    font-size: 2rem;
+    height: 100%;
+    padding-right: 2rem;
+    padding-left: 1.1rem;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#search-icon {
+    position: absolute;
+    top: 2.6rem;
+    right: 18%;
+    z-index: 11;
+    cursor: pointer;
+}
+
+
+#show-search-bar {
+    transition: all 0.3s;
+}
+
+#show-search-bar {
+    position: absolute;
+    z-index: 103;
+    top: .5rem;
+    right: 5%;
+    display: none;
+}
+
+
+#show-search-bar:checked~#search-bar {
+    display: unset;
+}
+
+.close-search-bar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    border-radius: 50%;
+    padding: 6px 11px 6px 11px;
+    position: absolute;
+    font-weight: 600;
+    font-size: 2rem;
+    right: 6%;
+    top: 1.1rem;
+    z-index: 104;
+    display: none;
+    color: rgb(119, 3, 3);
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+#show-search-bar:checked~.close-search-bar {
+    display: unset;
+}
+
+/* --- visibility ---*/
+.add-visibility {
+    display: none;
+}
+
+
+/* --- main --- */
+main {
+    position: relative;
+    margin-top: 6rem;
+}
+
+#add-submodel,
+#add-mdl {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    z-index: 3;
+    width: 3.7rem;
+    height: 3.7rem;
+    top: 90%;
+    right: 2%;
+    /* background-color: #2A99ED; */
+    background-color: #6fd9e7;
+    border-radius: 50%;
+    font-size: 3rem;
+    border: none;
+    box-shadow: -2px 3px 15px rgba(0, 0, 0, 0.733);
+    padding: 0;
+    cursor: pointer;
+}
+
+#lnmodels {
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding-top: 1rem;
+}
