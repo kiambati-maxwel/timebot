@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#6FD9E7"/>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#6FD9E7" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>StudyBot</title>
-  <link rel="manifest" href="/config/pwa.webmanifest">
-  <link rel="apple-touch-icon" href="/images/icon/logo512-2.png">
+	<!-- <link rel="manifest" href="/config/pwa.webmanifest"> -->
+	<link rel="apple-touch-icon" href="/images/icon/logo512-2.png">
 	<link rel="stylesheet" href="/styles/reset.css">
 	<link rel="stylesheet" href="/styles/hamberger.css">
+	<link rel="stylesheet" href="/styles/loginform.css">
 	<link rel="stylesheet" href="/styles/index.css">
 	<link rel="stylesheet" href="/styles/add-mdl-form.css">
 	<link rel="stylesheet" href="/styles/model.css">
@@ -24,6 +25,41 @@
 			<a href="/model"><img src="/images/logo7.svg" alt="timebot"></a>
 		</figure>
 	</header>
+	<div id="login" class="add-visibility">
+		<form action="/user/login" method="POST">
+			<h2>login</h2>
+			<input type="email" name="email" placeholder="Enter email adress" id="myemail" autofocus>
+			<br>
+			<input type="password" name="password" id="mypassword" placeholder="Enter password">
+			<br>
+			<input type="submit" class="submit" value="submit" name="submit">
+			<p>dont have an account ? -- <span class="if-no-account">sign up</span></p>
+		</form>
+	</div>
+
+	<div class="add-visibility" id="register">
+
+		<form class="my-form " action="/user/register" method="POST">
+			<h2>Sign Up</h2>
+
+			<input id="form-name" type="text" name="name" class="input-form" placeholder="1st and 2nd name ..."
+				pattern="(.*)\s(.*)" required autofocus>
+
+			<input id="form-email" type="email" name="email" class="input-form" placeholder="Email ..." required>
+
+			<input id="form-password" type="password" name="password" class="input-form" placeholder="Password..." required>
+
+			<input id="form-password2" type="password" name="password2" class="input-form" placeholder="Confirm password ..."
+				required>
+
+			<br>
+			<input class="btn-form" type="submit" value="submit" name="" class="input-form">
+
+			<p class="if-account">have an account ? -- <span></span><a href="/"> login</a></span></p>
+		</form>
+
+	</div>
+
 
 	<!-- searchbar icon -->
 	<input type="checkbox" id="show-search-bar" autofocus>

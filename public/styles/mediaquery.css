@@ -9,6 +9,11 @@
         margin-top: 19vh;
     }
 
+    #register form,
+    #login form {
+        width: 60%;
+    }
+
     .app-view {
         width: 70%;
     }
@@ -157,8 +162,8 @@
     }
 
     .show-stats-submodels {
-        margin-top: 30vh;
-        margin-left: 45%;
+        margin-top: 60vh;
+        margin-left: 44.3%;
     }
 
     /* graph */

@@ -5,10 +5,11 @@
 import chalk from 'chalk';
 import express from 'express';
 import path from 'path';
-import mongoose from 'mongoose';
+import initClientDbConnection from './lib/connections/dbutils';
 
 // routes
 import landing_page from './lib/routes/index';
+import users from './lib/routes/users';
 
 const {
   redirectToHTTPS
@@ -20,8 +21,13 @@ function server_1() {
   const port = process.env.PORT || 2000;
   const app = express();
 
+  // here we assign connection object to the global js object
+  global.clientConnection = initClientDbConnection;
+  global.appRoot = path.resolve(__dirname);
+
   // serving static files
-  app.use(express.static(path.join(__dirname, '/dist')));
+  // in production this path .....
+  app.use(express.static(path.join(__dirname, '/public')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/chart.js/dist')));
 
@@ -37,6 +43,7 @@ function server_1() {
 
   // Hundle api endpoints
   app.use('/', landing_page);
+  app.use('/user', users);
 
   // start server
   app.listen(port, (err) => {
@@ -85,6 +92,7 @@ function server_2() {
 
   // Hundle api endpoints
   app.use('/', landing_page);
+  app.use('/user', users);
 
   // start server
   app.listen(port, (err) => {

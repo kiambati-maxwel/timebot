@@ -6,9 +6,11 @@ var _express = _interopRequireDefault(require("express"));
 
 var _path = _interopRequireDefault(require("path"));
 
-var _mongoose = _interopRequireDefault(require("mongoose"));
+var _dbutils = _interopRequireDefault(require("./lib/connections/dbutils"));
 
 var _index = _interopRequireDefault(require("./lib/routes/index"));
+
+var _users = _interopRequireDefault(require("./lib/routes/users"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,9 +27,13 @@ const {
 
 function server_1() {
   const port = process.env.PORT || 2000;
-  const app = (0, _express.default)(); // serving static files
+  const app = (0, _express.default)(); // here we assign connection object to the global js object
 
-  app.use(_express.default.static(_path.default.join(__dirname, '/dist')));
+  global.clientConnection = _dbutils.default;
+  global.appRoot = _path.default.resolve(__dirname); // serving static files
+  // in production this path .....
+
+  app.use(_express.default.static(_path.default.join(__dirname, '/public')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/chart.js/dist'))); // ejs
 
@@ -39,7 +45,8 @@ function server_1() {
     extended: false
   })); // Hundle api endpoints
 
-  app.use('/', _index.default); // start server
+  app.use('/', _index.default);
+  app.use('/user', _users.default); // start server
 
   app.listen(port, err => {
     if (err) {
@@ -79,7 +86,8 @@ function server_2() {
     extended: false
   })); // Hundle api endpoints
 
-  app.use('/', _index.default); // start server
+  app.use('/', _index.default);
+  app.use('/user', _users.default); // start server
 
   app.listen(port, err => {
     if (err) {

@@ -139,3 +139,10 @@ main {
     overflow: auto;
     padding-top: 1rem;
 }
+
+.if-no-account{
+    color: blue;
+}
+.if-no-account:hover{
+    cursor: pointer;
+}
