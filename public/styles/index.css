@@ -1,4 +1,7 @@
 /* --- header --- */
+body{
+    overflow: hidden;
+}
 
 header {
     display: block;
@@ -111,7 +114,6 @@ main {
     position: relative;
     margin-top: 6rem;
     padding-bottom: 6rem;
-    height: 100vh;
 }
 
 #add-submodel,
