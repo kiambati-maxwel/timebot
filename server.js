@@ -12,6 +12,8 @@ var _index = _interopRequireDefault(require("./lib/routes/index"));
 
 var _users = _interopRequireDefault(require("./lib/routes/users"));
 
+var _lnmodels = _interopRequireDefault(require("./lib/routes/lnmodels"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable no-console */
@@ -46,7 +48,8 @@ function server_1() {
   })); // Hundle api endpoints
 
   app.use('/', _index.default);
-  app.use('/user', _users.default); // start server
+  app.use('/user', _users.default);
+  app.use('/lnmodels', _lnmodels.default); // start server
 
   app.listen(port, err => {
     if (err) {

@@ -10,6 +10,7 @@ import initClientDbConnection from './lib/connections/dbutils';
 // routes
 import landing_page from './lib/routes/index';
 import users from './lib/routes/users';
+import lnmodels from './lib/routes/lnmodels';
 
 const {
   redirectToHTTPS
@@ -44,6 +45,7 @@ function server_1() {
   // Hundle api endpoints
   app.use('/', landing_page);
   app.use('/user', users);
+  app.use('/lnmodels', lnmodels);
 
   // start server
   app.listen(port, (err) => {

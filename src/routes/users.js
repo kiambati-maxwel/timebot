@@ -6,6 +6,24 @@ import bcrypt from 'bcryptjs';
 
 const router = express.Router();
 
+// get all users
+router.get('/allusers', async (req, res) => {
+  // accesing our cluster  connection from global object
+  const dbConnection = await global.clientConnection;
+  const db = await dbConnection.useDb(`studybottest`, {
+    useCache: true
+  });
+  const User = await db.model("User");
+
+  await User.find({}, (err, users) => {
+    res.json(users);
+    if (err) {
+      console.log(err);
+      res.status(500);
+    }
+  });
+});
+
 // handle register
 router.post('/register', async (req, res) => {
   // destructure
@@ -18,7 +36,9 @@ router.post('/register', async (req, res) => {
   // pass
   // accesing our cluster  connection from global object
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest`);
+  const db = await dbConnection.useDb(`studybottest`, {
+    useCache: true
+  });
   const User = await db.model("User");
   if (password !== password2) {
     res.status(400).render('registererrors', {
