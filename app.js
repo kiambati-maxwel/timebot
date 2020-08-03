@@ -11,6 +11,7 @@ import initClientDbConnection from './lib/connections/dbutils';
 import landing_page from './lib/routes/index';
 import users from './lib/routes/users';
 import lnmodels from './lib/routes/lnmodels';
+import submodels from './lib/routes/submodels';
 
 const {
   redirectToHTTPS
@@ -46,6 +47,7 @@ function server_1() {
   app.use('/', landing_page);
   app.use('/user', users);
   app.use('/lnmodels', lnmodels);
+  app.use('/submodels', submodels);
 
   // start server
   app.listen(port, (err) => {

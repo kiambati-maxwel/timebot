@@ -231,12 +231,13 @@
         background-color: white;
         height: 60vh;
         right: 5%;
-
-
+    }
+    #sub-container-dashboard{
+        padding-top: unset;
     }
 
     .sub-timer h1 {
-        margin-top: 6%;
+        margin-top: 15%;
     }
 
     #clear-timer-btn {
@@ -249,6 +250,7 @@
         height: 3rem;
         width: 3rem;
         font-size: 1rem;
+        top: 85%;
     }
 
     #savetimebtn {
@@ -261,5 +263,11 @@
 
     }
 
-
+    #subModelNameTimer{
+        text-align: center;
+        width: 100%;
+    }
+    #s-timer{
+        display: unset;
+    }
 }

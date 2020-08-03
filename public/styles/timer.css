@@ -3,10 +3,9 @@
   position: absolute;
   z-index: 22;
   width: 100%;
-  top: 15vh;
+  top: 20vh;
   background-color: aliceblue;
   height: 80vh;
-    
 }
 #clear-timer-btn{
   border: none;
@@ -15,13 +14,10 @@
   margin-top: 7%;
 }
 /* timer */
-.sub-timer {
 
-
-}
 
 .sub-timer h1 {
-  margin-top: 0;
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -79,7 +75,7 @@
 #savetimebtn,
 #resetbtn {
   position: absolute;
-  top: 65%;
+  top: 75%;
   border: none;
   font-size: 14px;
   border-radius: 50%;
@@ -105,10 +101,11 @@
 }
 
 #subModelNameTimer {
-  text-align: center;
-  padding-left: 13%;
-  height: 10px;
+  position: absolute;
+  top: 6%;
+  width: 80%;
   font-weight: 600;
   letter-spacing: 2px;
-  font-size: 18px;
+  font-size: 22px;
+  padding: 2rem;
 }

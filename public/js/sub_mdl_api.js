@@ -31,7 +31,7 @@ function onError(error) {
 }
 
 function get_submodels() {
-  return get(`/submodels/lenderSmodels/${mainModelNamevalue}`);
+  return get(`/submodels/lenderSmodels/${mainModelNamevalue}?id=${localStorage.tenant_ID}`);
 }
 
 function get_submodels_statistics() {
@@ -46,7 +46,7 @@ function post_submdl() {
       name: submodelnameinput.value
     };
 
-    await post(`/submodels/addmdl`, send);
+    await post(`/submodels/addmdl?id=${localStorage.tenant_ID}`, send);
   });
 }
 

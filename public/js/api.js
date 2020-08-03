@@ -20,5 +20,8 @@ function get_users() {
 function get_name() {
   return get('/appshell');
 }
+function get_models() {
+  return get(`/lnmodels?id=${localStorage.tenant_ID}`);
+}
 
-export { get_users, get_name };
+export { get_users, get_name, get_models };

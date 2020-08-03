@@ -110,6 +110,8 @@ header {
 main {
     position: relative;
     margin-top: 6rem;
+    padding-bottom: 6rem;
+    height: 100vh;
 }
 
 #add-submodel,
@@ -145,4 +147,22 @@ main {
 }
 .if-no-account:hover{
     cursor: pointer;
+}
+
+#moduleLender{
+    position: absolute;
+    top: 5rem;
+    left: 5%;
+    text-align: center;
+    z-index: 113;
+    margin: 0 auto;
+    background-color: #6FD9E7;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 2rem;
+    width: 90%;
+    color: rgb(82, 82, 82);
+}
+#sub-container-dashboard{
+    padding-top: 9vh;
 }
