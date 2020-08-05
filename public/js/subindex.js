@@ -1,7 +1,14 @@
 /* eslint-disable */
-import { filterModels } from '/js/filter_names.js';
-import { get_submodels, get_submodels_statistics } from '/js/sub_mdl_api.js';
-import { submdl_timer } from '/js/stopwatch.js';
+import {
+  filterModels
+} from '/js/filter_names.js';
+import {
+  get_submodels,
+  get_submodels_statistics
+} from '/js/sub_mdl_api.js';
+import {
+  submdl_timer
+} from '/js/stopwatch.js';
 
 const mainInput = document.querySelector('#submodel-main-m-nput');
 const playpause = document.querySelector('.play-pause');
@@ -12,6 +19,7 @@ const clearTimer = document.querySelector('#s-timer');
 const tTimeToday = document.querySelector('.tTimeToday');
 const totalTimeSpen = document.querySelector('#totalTimeSpen');
 const totalTanlysed = document.querySelector('#totalTanlysed');
+const analysedToday = document.querySelector('#analysedToday');
 
 window.addEventListener('load', submdl_timer.saveLcTime());
 // start stop timer
@@ -80,9 +88,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     let d = null;
     let t = null;
     let tt = null;
+    let ttd = null
     let subTopic = [];
     let subTopicToday = []
     let subTopicTime = [];
+    let subTopicTimetoday = [];
+    let time_today_an = [];
     if (info[0] === undefined) {
       console.log('nothing');
       totalTimeSpen.innerText = `total time : 0`;
@@ -97,7 +108,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         let dateN = new Date(e.createdAt);
 
         if (subTopicTime.length < 1 || subTopic.includes(e.name) !== true) {
-          info.filter(info => {  /* filter subtopic name in info get request data */
+          info.filter(info => {
+            /* filter subtopic name in info get request data */
             return info.name === e.name;
           }).map(sbn => {
             return sbn.time /* map time into an array */
@@ -114,11 +126,14 @@ window.addEventListener('DOMContentLoaded', async () => {
           tt = null;
         }
 
-        if (dateToday.getDate() === dateN.getDate()
-        && dateToday.getFullYear() === dateN.getFullYear()
-        &&dateToday.getMonth() === dateN.getMonth()) {
+        if (dateToday.getDate() === dateN.getDate() &&
+          dateToday.getFullYear() === dateN.getFullYear() &&
+          dateToday.getMonth() === dateN.getMonth()) {
           d += e.time;
-
+          time_today_an.push({
+            name: e.name,
+            time: e.time
+          })
         } else {
           d = 0
         }
@@ -133,6 +148,33 @@ window.addEventListener('DOMContentLoaded', async () => {
       totalTanlysed.prepend(appendAnTime);
     });
 
+    time_today_an.forEach(info => {
+      console.log(info);
+      if (subTopicTimetoday.length < 1 || subTopicToday.includes(info.name) !== true) {
+        time_today_an.filter(info => {
+          /* filter subtopic name in info get request data */
+          return info.name;
+        }).map(sbn => {
+          return sbn.time /* map time into an array */
+        }).forEach(e => {
+
+          ttd += e;
+
+        });
+        subTopicToday.push(info.name);
+        subTopicTimetoday.push({
+          name: info.name,
+          time: ttd
+        });
+        ttd = null;
+
+      }
+    });
+    subTopicTimetoday.forEach(e => {
+      let appendAnTime = document.createElement('li');
+      appendAnTime.innerText = `${e.name} : ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min`;
+      analysedToday.prepend(appendAnTime);
+    });
 
     totalTimeSpen.innerText = `total time : ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min`;
     console.log(d);
