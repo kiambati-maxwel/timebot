@@ -180,7 +180,7 @@
     margin-bottom: 1rem;
 
 }
-#modelStats span{
+#sub-model-stats span, #modelStats span{
     color: maroon;
 }
 
@@ -194,7 +194,9 @@
 #sub-model-stats ul li{
     margin-left: 10%;
     margin-bottom: 1.5rem;
+    list-style-type: none;
 }
+
 
 
 

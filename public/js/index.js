@@ -1,6 +1,13 @@
 /* eslint-disable */
-import { get_users, get_name, get_models, get_time_sts } from '/js/api.js';
-import { filterModels } from '/js/filter_names.js';
+import {
+  get_users,
+  get_name,
+  get_models,
+  get_time_sts
+} from '/js/api.js';
+import {
+  filterModels
+} from '/js/filter_names.js';
 
 filterModels();
 
@@ -33,7 +40,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     console.log(data.dayGraphArray);
     const ctx = document.getElementById('myChart').getContext('2d');
 
-    var myChart = new Chart(ctx, {
+    const myChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: data.dayNameGraphArray,
@@ -74,11 +81,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     Today.innerHTML = `Today : <span> ${Math.trunc(data.totalTimeToday / 60)} hrs ${Math.trunc(data.totalTimeToday % 60)} mins`;
     modelStats.appendChild(Today);
     const todaysts = document.createElement('ul');
+
     data.modelTimeT.forEach(e => {
       const li = document.createElement('li');
       li.innerHTML = `${e.name}<strong>:</strong> <span>${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min</span>`;
       todaysts.appendChild(li);
     });
+
     modelStats.appendChild(todaysts);
     const Ttime = document.createElement('h3');
     Ttime.innerHTML = `total time : <span>${Math.trunc(data.totalTime / 60)} hr ${Math.trunc(data.totalTime % 60)} min </span>`
@@ -90,14 +99,17 @@ window.addEventListener('DOMContentLoaded', async () => {
      ${Math.round(e.time % 60)} min</span>`;
       mli.appendChild(li);
     });
+
     modelStats.appendChild(mli);
   });
 });
 
-function logout () {
+// logout function
+function logout() {
   const lg = document.querySelector('#sidebarMenu .logout-label');
-  lg.addEventListener('click', ()=>{
-  localStorage.removeItem('tenant_ID');
+  lg.addEventListener('click', () => {
+    localStorage.removeItem('tenant_ID');
   });
 }
+
 logout();

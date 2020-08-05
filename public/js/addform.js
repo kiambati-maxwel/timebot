@@ -9,6 +9,7 @@ const add_model_form = document.querySelector('#add-model-form');
 const submod = document.querySelector('.ln-models');
 const submodelform = document.querySelector('#submodel-form');
 const clearTimerBtn = document.querySelector('#s-timer');
+
 function clearElement(element) {
   if (element.className === 'add-visibility') {
     element.classList.remove('add-visibility');

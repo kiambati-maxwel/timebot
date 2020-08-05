@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* ------- import filter models && api && timer object ------- */
 import {
   filterModels
 } from '/js/filter_names.js';
@@ -10,8 +11,11 @@ import {
   submdl_timer
 } from '/js/stopwatch.js';
 
+// search function
+filterModels();
+
+// DOM
 const mainInput = document.querySelector('#submodel-main-m-nput');
-const playpause = document.querySelector('.play-pause');
 const mainModelName = document.querySelector('#moduleLender');
 const mainModelNamevalue = mainModelName.innerText;
 const subModelNameTimer = document.querySelector('#subModelNameTimer');
@@ -37,19 +41,17 @@ submdl_timer.resetbtn.addEventListener('click', () => {
   submdl_timer.reset();
 });
 
+// save time
 submdl_timer.savebtn.addEventListener('click', () => {
   submdl_timer.totalTimeSpent();
-  console.log('time saved');
   submdl_timer.reset();
 });
 
-
-
-filterModels();
 window.addEventListener('DOMContentLoaded', async () => {
   await get_submodels().then(submodels => {
     mainInput.value = mainModelNamevalue;
 
+    // get submodels and populate DOM
     submodels.forEach(e => {
       let model = document.createElement('h1');
       let aElement = document.createElement('a');
@@ -60,15 +62,11 @@ window.addEventListener('DOMContentLoaded', async () => {
       document.querySelector('#submodels').prepend(model);
 
       model.addEventListener('click', () => {
-        // add_playbtn();
         add_timer();
         const modelResize = document.querySelectorAll('.model');
         subModelNameTimer.innerText = model.innerText;
-        // subModuleName = model.innerText;
-        // console.log(model.id);
         modelResize.forEach(e => {
           if (e.id !== model.id) {
-            // console.log(e);
             e.style.backgroundColor = "yellow";
             e.style.opacity = "0.5";
             e.style.transitionDuration = ".7s";
@@ -82,26 +80,22 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
+  // get and analyse time
   await get_submodels_statistics().then(info => {
-    console.log(info);
-    console.log(totalTimeSpen.innerText);
     let d = null;
     let t = null;
     let tt = null;
-    let ttd = null
-    let subTopic = [];
-    let subTopicToday = []
-    let subTopicTime = [];
-    let subTopicTimetoday = [];
-    let time_today_an = [];
-    if (info[0] === undefined) {
-      console.log('nothing');
-      totalTimeSpen.innerText = `total time : 0`;
+    let ttd = null;
+    const subTopic = [];
+    const subTopicToday = []
+    const subTopicTime = [];
+    const subTopicTimetoday = [];
+    const time_today_an = [];
 
+    if (info[0] === undefined) {
+      totalTimeSpen.innerText = `total time : 0`;
     } else {
       const dateToday = new Date();
-
-      console.log(dateToday);
 
       info.forEach(e => {
         t += e.time;
@@ -112,7 +106,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             /* filter subtopic name in info get request data */
             return info.name === e.name;
           }).map(sbn => {
-            return sbn.time /* map time into an array */
+            return sbn.time; /* map time into an array */
           }).forEach(e => {
 
             tt += e;
@@ -133,14 +127,12 @@ window.addEventListener('DOMContentLoaded', async () => {
           time_today_an.push({
             name: e.name,
             time: e.time
-          })
+          });
         } else {
-          d = 0
+          d = 0;
         }
-
-      })
+      });
     }
-    console.log(subTopicTime);
 
     subTopicTime.forEach(e => {
       let appendAnTime = document.createElement('li');
@@ -148,8 +140,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       totalTanlysed.prepend(appendAnTime);
     });
 
+    // populate time for each submodel today
     time_today_an.forEach(info => {
-      console.log(info);
       if (subTopicTimetoday.length < 1 || subTopicToday.includes(info.name) !== true) {
         time_today_an.filter(info => {
           /* filter subtopic name in info get request data */
@@ -170,6 +162,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
       }
     });
+
     subTopicTimetoday.forEach(e => {
       let appendAnTime = document.createElement('li');
       appendAnTime.innerText = `${e.name} : ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min`;
@@ -177,24 +170,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
 
     totalTimeSpen.innerText = `total time : ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min`;
-    console.log(d);
     tTimeToday.innerText = `Today : ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min`;
-  })
+  });
 });
 
-
-function add_playbtn() {
-  if (playpause.className === 'play-pause add-visibility') {
-    playpause.classList.remove('add-visibility');
-  } else {
-    playpause.classList.add('add-visibility');
-  };
-}
-
+// timer section lender
 function add_timer() {
   if (clearTimer.className === 'add-visibility') {
     clearTimer.classList.remove('add-visibility');
   } else {
     clearTimer.classList.add('add-visibility');
-  };
+  }
 }

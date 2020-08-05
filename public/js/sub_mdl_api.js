@@ -8,10 +8,12 @@ const subForm = document.querySelector('#submodel-form');
 const mainName = document.querySelector('.module');
 const submodelnameinput = document.querySelector('#submodelnameinput');
 
+// get
 function get(url) {
   return fetch(url).then(onSuccess, onError);
 }
 
+// post
 function post(url, data) {
   return fetch(url, {
     method: "POST",
@@ -50,6 +52,7 @@ function post_submdl() {
   });
 }
 
+// exposing modular patterns
 export {
   get_submodels,
   get_submodels_statistics,

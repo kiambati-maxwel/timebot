@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+
 function filterModels() {
   const search = document.querySelector('#search-model');
   //  get input value
@@ -17,4 +18,7 @@ function filterModels() {
   });
   search.addEventListener('keyup', filterModels);
 }
-export { filterModels };
+
+export {
+  filterModels
+};

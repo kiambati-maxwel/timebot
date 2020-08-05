@@ -3,8 +3,7 @@ import {
   post
 } from '/js/sub_mdl_api.js';
 
-// window.addEventListener('load', submdl_timer.saveLcTime());
-
+// timer object
 const submdl_timer = {
   // dom
   timeDisplay: document.querySelector('#time-display'),
@@ -135,14 +134,6 @@ const submdl_timer = {
   }
 };
 
-// // start stop timer
-// submdl_timer.playPauseCheckbox.addEventListener('click', () => {
-//   submdl_timer.startStop();
-// });
-
-// // reset btn ...
-// submdl_timer.resetbtn.addEventListener('click', () => {
-//   submdl_timer.reset();
-// });
-
-export { submdl_timer };
+export {
+  submdl_timer
+};
