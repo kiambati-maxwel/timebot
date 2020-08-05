@@ -3,7 +3,7 @@ import {
   post
 } from '/js/sub_mdl_api.js';
 
-window.addEventListener('load', submdl_timer.saveLcTime());
+// window.addEventListener('load', submdl_timer.saveLcTime());
 
 const submdl_timer = {
   // dom
@@ -13,6 +13,8 @@ const submdl_timer = {
   savebtn: document.querySelector('#savetimebtn'),
   moduleLender: document.querySelector('#moduleLender'),
   playpause: document.querySelector('.play-pause'),
+  subModuleName: document.querySelector('#subModelNameTimer'),
+
 
   // variables to hold time
   seconds: 0,
@@ -70,38 +72,38 @@ const submdl_timer = {
   totalTimeSpent: async function () {
     const totalTime = submdl_timer.hours * 60 + submdl_timer.minutes + submdl_timer.seconds / 60;
     console.log(totalTime);
-    if (subModuleName === null) {
+    if (submdl_timer.subModuleName.innerText === '') {
       alert('select submodule');
     } else {
       const send = {
-        name: subModuleName,
+        name: submdl_timer.subModuleName.innerText,
         mainModelName: submdl_timer.moduleLender.innerText,
         time: totalTime
       };
       console.log(send);
-      await post(`/timebox/saveme`, send);
+      await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
     }
-
     submdl_timer.reset();
-    localStorage.clear();
+    localStorage.removeItem('timeInit');
   },
   startStop: function () {
     if (submdl_timer.status === 'stopped') {
       // start stop watch interval
       submdl_timer.interval = window.setInterval(submdl_timer.stopWatch, 1000.7);
-      submdl_timer.localInterval = window.setInterval(submdl_timer.updateLoacalStorage(), 5000);
+      submdl_timer.localInterval = window.setInterval(submdl_timer.updateLoacalStorage, 5000);
       submdl_timer.status = 'started';
     } else {
       window.clearInterval(submdl_timer.interval);
       submdl_timer.status = 'stopped';
-      window.clearInterval(submdl_timer.updateLoacalStorage());
+      window.clearInterval(submdl_timer.localInterval);
+      localStorage.removeItem('timeInit');
     }
   },
   // reset btn ...
   reset: function () {
     window.clearInterval(submdl_timer.interval);
     window.clearInterval(submdl_timer.localInterval);
-    localStorage.clear();
+    localStorage.removeItem('timeInit');
     submdl_timer.seconds = 0;
     submdl_timer.minutes = 0;
     submdl_timer.hours = 0;
@@ -116,7 +118,7 @@ const submdl_timer = {
   updateLoacalStorage: async function () {
     const totalTime = submdl_timer.hours * 60 + submdl_timer.minutes + submdl_timer.seconds / 60;
     const send = {
-      name: subModuleName,
+      name: submdl_timer.subModuleName.innerText,
       mainModelName: submdl_timer.moduleLender.innerText,
       time: totalTime
     };
@@ -126,19 +128,21 @@ const submdl_timer = {
   saveLcTime: function () {
     if (localStorage.timeInit) {
       const send = JSON.parse(localStorage.timeInit);
-      post(`/timebox/saveme`, send);
+      post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
       console.log(send);
-      localStorage.clear();
+      localStorage.removeItem('timeInit');
     }
   }
 };
 
-// start stop timer
-submdl_timer.playPauseCheckbox.addEventListener('click', () => {
-  submdl_timer.startStop();
-});
+// // start stop timer
+// submdl_timer.playPauseCheckbox.addEventListener('click', () => {
+//   submdl_timer.startStop();
+// });
 
-// reset btn ...
-submdl_timer.resetbtn.addEventListener('click', () => {
-  submdl_timer.reset();
-});
+// // reset btn ...
+// submdl_timer.resetbtn.addEventListener('click', () => {
+//   submdl_timer.reset();
+// });
+
+export { submdl_timer };

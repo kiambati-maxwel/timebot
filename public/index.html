@@ -7,7 +7,7 @@
 	<meta name="theme-color" content="#6FD9E7" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>StudyBot</title>
-	<!-- <link rel="manifest" href="/config/pwa.webmanifest"> -->
+	<link rel="manifest" href="/config/pwa.webmanifest">
 	<link rel="apple-touch-icon" href="/images/icon/logo512-2.png">
 	<link rel="stylesheet" href="/styles/reset.css">
 	<link rel="stylesheet" href="/styles/hamberger.css">
@@ -83,7 +83,7 @@
 
 	<!-- side navigation-->
 	<nav id="sidebarMenu">
-		<a href="">logout <span class="logout-label"></span></a>
+		<a><span class="logout-label">logout</span></a>
 
 		<div class="side-menu-container">
 
@@ -98,7 +98,7 @@
 
 			<!-- stats interprated section -->
 			<div id="modelStats" class="add-visibility">
-				<h3>Today : <span>2hr 45 min </span></h3>
+				<!-- <h3>Today : <span>2hr 45 min </span></h3>
 				<ul>
 
 					<li>math<strong>:</strong> <span>1hr 45min</span></li>
@@ -119,19 +119,15 @@
 					<li> Fetch API <strong>:</strong>5hr 10 min <span></li>
 					<li> IOT<strong>:</strong>5hr 10 min <span></li>
 					<li> Machine Learning <strong>:</strong>15hr 10 min <span></li>
-				</ul>
+				</ul> -->
 			</div>
-
 			<!-- stats interprated show btn -->
 			<button class="show-stats" onclick="clearElement(modelStats)">Statistics</button>
 			<footer>
 				<small>&copy; max 2020</small>
 			</footer>
-
 		</div>
-
 	</nav>
-
 
 	<!-- main section -->
 
@@ -169,7 +165,7 @@
  -->
 
 				<h1 class="model model-4 is-visible" style="visibility: hidden;">
-					<a href="">e</a >
+					<a href="">e</a>
 				</h1>
 			</section>
 
@@ -190,6 +186,7 @@
 	<script src="/jss/Chart.min.js"></script>
 	<script src="/js/index.js" type="module"></script>
 	<script src="/js/addform.js"></script>
+	<script src="./js/pwa.js"></script>
 
 </body>
 

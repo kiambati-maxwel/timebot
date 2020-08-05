@@ -17,11 +17,22 @@ function onError(error) {
 function get_users() {
   return get('/users');
 }
+
 function get_name() {
   return get('/appshell');
 }
+
 function get_models() {
   return get(`/lnmodels?id=${localStorage.tenant_ID}`);
 }
 
-export { get_users, get_name, get_models };
+function get_time_sts() {
+  return get(`/timebox/sts?id=${localStorage.tenant_ID}`);
+}
+
+export {
+  get_users,
+  get_name,
+  get_models,
+  get_time_sts
+};

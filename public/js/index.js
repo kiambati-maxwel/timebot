@@ -1,11 +1,9 @@
 /* eslint-disable */
-import { get_users, get_name, get_models } from '/js/api.js';
-import { chartinit } from '/js/mychart.js';
+import { get_users, get_name, get_models, get_time_sts } from '/js/api.js';
 import { filterModels } from '/js/filter_names.js';
 
-chartinit();
 filterModels();
-// import jquery from '../node_modules/jquery/dist/jquery';
+
 console.log("bundled bundled all files");
 console.log("source map test");
 
@@ -29,4 +27,77 @@ window.addEventListener('DOMContentLoaded', async () => {
       document.querySelector('#lnmodels').prepend(model);
     });
   });
+  await get_time_sts().then(data => {
+    console.log(data);
+    console.log(data.dayNameGraphArray);
+    console.log(data.dayGraphArray);
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.dayNameGraphArray,
+        datasets: [{
+          label: '# time in hrs',
+          data: data.dayGraphArray,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.05)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgb(59, 25, 43)',
+            'rgb(50, 20, 25)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+    const modelStats = document.querySelector('#modelStats');
+    const Today = document.createElement('h3');
+    Today.innerHTML = `Today : <span> ${Math.trunc(data.totalTimeToday / 60)} hrs ${Math.trunc(data.totalTimeToday % 60)} mins`;
+    modelStats.appendChild(Today);
+    const todaysts = document.createElement('ul');
+    data.modelTimeT.forEach(e => {
+      const li = document.createElement('li');
+      li.innerHTML = `${e.name}<strong>:</strong> <span>${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min</span>`;
+      todaysts.appendChild(li);
+    });
+    modelStats.appendChild(todaysts);
+    const Ttime = document.createElement('h3');
+    Ttime.innerHTML = `total time : <span>${Math.trunc(data.totalTime / 60)} hr ${Math.trunc(data.totalTime % 60)} min </span>`
+    modelStats.appendChild(Ttime);
+    const mli = document.createElement('ul');
+    data.modelTime.forEach(e => {
+      const li = document.createElement('li');
+      li.innerHTML = `${e.name} <strong>:</strong> <span> ${Math.trunc(e.time / 60)} hr
+     ${Math.round(e.time % 60)} min</span>`;
+      mli.appendChild(li);
+    });
+    modelStats.appendChild(mli);
+  });
 });
+
+function logout () {
+  const lg = document.querySelector('#sidebarMenu .logout-label');
+  lg.addEventListener('click', ()=>{
+  localStorage.removeItem('tenant_ID');
+  });
+}
+logout();

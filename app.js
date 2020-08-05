@@ -12,6 +12,7 @@ import landing_page from './lib/routes/index';
 import users from './lib/routes/users';
 import lnmodels from './lib/routes/lnmodels';
 import submodels from './lib/routes/submodels';
+import timebox from './lib/routes/timebox';
 
 const {
   redirectToHTTPS
@@ -29,7 +30,7 @@ function server_1() {
 
   // serving static files
   // in production this path .....
-  app.use(express.static(path.join(__dirname, '/public')));
+  app.use(express.static(path.join(__dirname, '/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/chart.js/dist')));
 
@@ -48,6 +49,7 @@ function server_1() {
   app.use('/user', users);
   app.use('/lnmodels', lnmodels);
   app.use('/submodels', submodels);
+  app.use('/timebox', timebox);
 
   // start server
   app.listen(port, (err) => {

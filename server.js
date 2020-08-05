@@ -16,6 +16,8 @@ var _lnmodels = _interopRequireDefault(require("./lib/routes/lnmodels"));
 
 var _submodels = _interopRequireDefault(require("./lib/routes/submodels"));
 
+var _timebox = _interopRequireDefault(require("./lib/routes/timebox"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable no-console */
@@ -37,7 +39,7 @@ function server_1() {
   global.appRoot = _path.default.resolve(__dirname); // serving static files
   // in production this path .....
 
-  app.use(_express.default.static(_path.default.join(__dirname, '/public')));
+  app.use(_express.default.static(_path.default.join(__dirname, '/dist')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/chart.js/dist'))); // ejs
 
@@ -52,7 +54,8 @@ function server_1() {
   app.use('/', _index.default);
   app.use('/user', _users.default);
   app.use('/lnmodels', _lnmodels.default);
-  app.use('/submodels', _submodels.default); // start server
+  app.use('/submodels', _submodels.default);
+  app.use('/timebox', _timebox.default); // start server
 
   app.listen(port, err => {
     if (err) {

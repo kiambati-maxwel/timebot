@@ -56,27 +56,12 @@
 		<div class="side-menu-container sub-mdl-side-menu">
 
 			<div id="sub-model-stats" class="add-visibility">
-				<h3>Today : <span>2hr 45 min </span></h3>
-				<ul>
+				<section class="today" id="now">
+					<h3 class="tTimeToday"> today: ?</h3>
+				</section>
+				<p id="totalTimeSpen">5hr 13 mins</p>
+				<ul id="totalTanlysed">
 
-					<li>math<strong>:</strong> <span>1hr 45min</span></li>
-
-				</ul>
-
-				<h3> T-time : <span> 75 hr 22.80 min </span></h3>
-
-				<ul>
-					<li> NPM <strong>:</strong>5hr 10 min <span></li>
-					<li> Javascript <strong>:</strong>5hr 10 min <span></li>
-					<li> Udacity <strong>:</strong>5hr 10 min <span></li>
-					<li> PWA <strong>:</strong>19hr 10 min <span></li>
-					<li> Typescript <strong>:</strong>5hr 10 min <span></li>
-					<li> Pluralsite <strong>:</strong>5hr 10 min <span></li>
-					<li> Python <strong>:</strong>5hr 0 min <span></li>
-					<li> Jibrish <strong>:</strong>3hr 10 min <span></li>
-					<li> Fetch API <strong>:</strong>5hr 10 min <span></li>
-					<li> IOT<strong>:</strong>5hr 10 min <span></li>
-					<li> Machine Learning <strong>:</strong>15hr 10 min <span></li>
 				</ul>
 			</div>
 
@@ -156,7 +141,7 @@
 					<label for="playPauseCheckbox"></label>
 				</div>
 
-				<button id="savetimebtn" onclick="totalTimeSpent()">save</button>
+				<button id="savetimebtn">save</button>
 				<button id="resetbtn">reset</button>
 
 			</div>
@@ -165,6 +150,7 @@
 	<script src="/js/addform.js"></script>
 	<script src="/js/subindex.js" type="module"></script>
 	<script src="/js/filter_names.js"></script>
+
 
 </body>
 

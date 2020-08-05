@@ -18,6 +18,8 @@ function clearElement(element) {
 }
 
 if (submod.id === 'lnmodels') {
+  console.log(localStorage.tenant_ID);
+  console.log('djhskjdsildskjsd');
   const ifnoaccount = document.querySelector('.if-no-account');
   const registerr = document.querySelector('#register');
 
@@ -26,7 +28,7 @@ if (submod.id === 'lnmodels') {
     clearElement(registerr);
   });
 
-  if (!localStorage.tenant_ID) {
+  if (!localStorage.tenant_ID || localStorage.tenant_ID === undefined) {
     clearElement(login);
   } else {
     add_model_form.setAttribute('action', `/lnmodels/addmdl?id=${localStorage.tenant_ID}`);

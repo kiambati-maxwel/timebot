@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { filterModels } from '/js/filter_names.js';
-import { get_submodels } from '/js/sub_mdl_api.js';
+import { get_submodels, get_submodels_statistics } from '/js/sub_mdl_api.js';
+import { submdl_timer } from '/js/stopwatch.js';
 
 const mainInput = document.querySelector('#submodel-main-m-nput');
 const playpause = document.querySelector('.play-pause');
@@ -8,6 +9,33 @@ const mainModelName = document.querySelector('#moduleLender');
 const mainModelNamevalue = mainModelName.innerText;
 const subModelNameTimer = document.querySelector('#subModelNameTimer');
 const clearTimer = document.querySelector('#s-timer');
+const tTimeToday = document.querySelector('.tTimeToday');
+const totalTimeSpen = document.querySelector('#totalTimeSpen');
+const totalTanlysed = document.querySelector('#totalTanlysed');
+
+window.addEventListener('load', submdl_timer.saveLcTime());
+// start stop timer
+submdl_timer.playPauseCheckbox.addEventListener('click', () => {
+  if (submdl_timer.subModuleName.innerText === '') {
+    alert('select submodel');
+    submdl_timer.playPauseCheckbox.checked = true;
+  } else {
+    submdl_timer.startStop();
+  }
+});
+
+// reset btn ...
+submdl_timer.resetbtn.addEventListener('click', () => {
+  submdl_timer.reset();
+});
+
+submdl_timer.savebtn.addEventListener('click', () => {
+  submdl_timer.totalTimeSpent();
+  console.log('time saved');
+  submdl_timer.reset();
+});
+
+
 
 filterModels();
 window.addEventListener('DOMContentLoaded', async () => {
@@ -45,7 +73,73 @@ window.addEventListener('DOMContentLoaded', async () => {
       });
     });
   });
+
+  await get_submodels_statistics().then(info => {
+    console.log(info);
+    console.log(totalTimeSpen.innerText);
+    let d = null;
+    let t = null;
+    let tt = null;
+    let subTopic = [];
+    let subTopicToday = []
+    let subTopicTime = [];
+    if (info[0] === undefined) {
+      console.log('nothing');
+      totalTimeSpen.innerText = `total time : 0`;
+
+    } else {
+      const dateToday = new Date();
+
+      console.log(dateToday);
+
+      info.forEach(e => {
+        t += e.time;
+        let dateN = new Date(e.createdAt);
+
+        if (subTopicTime.length < 1 || subTopic.includes(e.name) !== true) {
+          info.filter(info => {  /* filter subtopic name in info get request data */
+            return info.name === e.name;
+          }).map(sbn => {
+            return sbn.time /* map time into an array */
+          }).forEach(e => {
+
+            tt += e;
+
+          });
+          subTopic.push(e.name);
+          subTopicTime.push({
+            name: e.name,
+            time: tt
+          });
+          tt = null;
+        }
+
+        if (dateToday.getDate() === dateN.getDate()
+        && dateToday.getFullYear() === dateN.getFullYear()
+        &&dateToday.getMonth() === dateN.getMonth()) {
+          d += e.time;
+
+        } else {
+          d = 0
+        }
+
+      })
+    }
+    console.log(subTopicTime);
+
+    subTopicTime.forEach(e => {
+      let appendAnTime = document.createElement('li');
+      appendAnTime.innerText = `${e.name} : ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min`;
+      totalTanlysed.prepend(appendAnTime);
+    });
+
+
+    totalTimeSpen.innerText = `total time : ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min`;
+    console.log(d);
+    tTimeToday.innerText = `Today : ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min`;
+  })
 });
+
 
 function add_playbtn() {
   if (playpause.className === 'play-pause add-visibility') {

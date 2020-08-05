@@ -35,7 +35,7 @@ function get_submodels() {
 }
 
 function get_submodels_statistics() {
-  return get(`/timebox/${mainModelNamevalue}`);
+  return get(`/timebox/${mainModelNamevalue}?id=${localStorage.tenant_ID}`);
 }
 
 function post_submdl() {
