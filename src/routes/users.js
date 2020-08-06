@@ -2,6 +2,7 @@
 /* eslint-disable no-shadow */
 import express from 'express';
 import bcrypt from 'bcryptjs';
+import whichdb from '../../config/dbname';
 // import User from '../models/User';
 
 const router = express.Router();
@@ -10,7 +11,7 @@ const router = express.Router();
 router.get('/allusers', async (req, res) => {
   // accesing our cluster  connection from global object
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest`, {
+  const db = await dbConnection.useDb(`${whichdb.proddb}`, {
     useCache: true
   });
   const User = await db.model("User");
@@ -36,7 +37,7 @@ router.post('/register', async (req, res) => {
   // pass
   // accesing our cluster  connection from global object
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest`, {
+  const db = await dbConnection.useDb(`${whichdb.proddb}`, {
     useCache: true
   });
   const User = await db.model("User");
@@ -85,7 +86,7 @@ router.post('/login', async (req, res) => {
     password
   } = req.body;
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest`, {
+  const db = await dbConnection.useDb(`${whichdb.proddb}`, {
     useCache: true
   });
   const User = await db.model("User");
@@ -99,7 +100,7 @@ router.post('/login', async (req, res) => {
       if (isMatch) {
         const tenantid = userPresent.id;
         console.log(`${userPresent.name} : ${tenantid}`);
-        dbConnection.useDb(`studybottest_${tenantid}`, {
+        dbConnection.useDb(`${whichdb.proddb}_${tenantid}`, {
           useCache: true
         });
         res.status(200).render('youin', {

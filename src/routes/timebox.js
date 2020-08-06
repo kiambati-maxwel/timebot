@@ -1,5 +1,6 @@
 /* eslint-disable */
 import express from 'express';
+import whichdb from '../../config/dbname';
 import timebox from '../models/timebox';
 
 const router = express.Router();
@@ -7,7 +8,7 @@ const router = express.Router();
 // -------------------------------- GET request ------------------
 router.get('/sts', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, {
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
     useCache: true
   });
   const Timebox = await db.model("timebox");
@@ -159,7 +160,7 @@ router.get('/sts', async (req, res) => {
 
 router.get('/:mainModelName', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, {
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
     useCache: true
   });
   const Timebox = await db.model("timebox");
@@ -188,7 +189,7 @@ router.post('/saveme', async (req, res) => {
   } = req.body;
 
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, {
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
     useCache: true
   });
   const Timebox = await db.model("timebox");

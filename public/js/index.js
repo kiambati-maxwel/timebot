@@ -1,7 +1,5 @@
 /* eslint-disable */
 import {
-  get_users,
-  get_name,
   get_models,
   get_time_sts
 } from '/js/api.js';
@@ -11,18 +9,8 @@ import {
 
 filterModels();
 
-console.log("bundled bundled all files");
-console.log("source map test");
-
-get_users().then(data => {
-  console.log(data);
-});
-
 // populate ln-models
 window.addEventListener('DOMContentLoaded', async () => {
-  await get_name().then(data => {
-    console.log(data);
-  });
   await get_models().then(models => {
     models.forEach(m => {
       const model = document.createElement('h1');

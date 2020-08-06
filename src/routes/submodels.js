@@ -1,5 +1,6 @@
 /* eslint-disable */
 import express from 'express';
+import whichdb from '../../config/dbname';
 import submodels from '../models/submodels';
 import Lnmodel from "../models/Lnmodels";
 
@@ -9,7 +10,7 @@ const router = express.Router();
 // -------------------------------- GET request ------------------
 router.get('/getsubmdl', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
 
   const Submodel = await db.model("submodels");
 
@@ -26,7 +27,7 @@ router.get('/getsubmdl', async (req, res) => {
 // test route
 router.get('/lenderSmodels/:subMname', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
 
   const Submodel = await db.model("submodels");
 
@@ -43,7 +44,7 @@ router.get('/lenderSmodels/:subMname', async (req, res) => {
 
 router.get('/:subMname', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
 
   const Submodel = await db.model("submodels");
   await Submodel.find({ mainMname: req.params.subMname }, (err, submodelsValue) => {
@@ -70,7 +71,7 @@ router.post('/addmdl', async (req, res) => {
     name
   } = req.body;
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
 
   const Submodel = await db.model("submodels");
   // --- find the number of models to create a unique id
@@ -108,7 +109,7 @@ router.post('/addmdl', async (req, res) => {
 
 router.delete('/delete/:name', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`studybottest_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
 
   const Submodel = await db.model("submodels");
   await Submodel.find({ mainMname: req.params.subMname }, (err, submodelsValue) => {

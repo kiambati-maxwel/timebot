@@ -14,14 +14,6 @@ function onError(error) {
   console.log(error);
 }
 
-function get_users() {
-  return get('/users');
-}
-
-function get_name() {
-  return get('/appshell');
-}
-
 function get_models() {
   return get(`/lnmodels?id=${localStorage.tenant_ID}`);
 }
@@ -31,8 +23,6 @@ function get_time_sts() {
 }
 
 export {
-  get_users,
-  get_name,
   get_models,
   get_time_sts
 };

@@ -11,14 +11,21 @@ if (workbox) {
   workbox.routing.registerRoute(
     ({
       url
-    }) => url.pathname.startsWith('/dash'),
+    }) => url.pathname.startsWith('/lnmodels'),
     new workbox.strategies.NetworkFirst()
   );
 
   workbox.routing.registerRoute(
     ({
       url
-    }) => url.pathname.startsWith('/ln'),
+    }) => url.pathname.startsWith('/timebox'),
+    new workbox.strategies.NetworkFirst()
+  );
+
+  workbox.routing.registerRoute(
+    ({
+      url
+    }) => url.pathname.startsWith('/submodels'),
     new workbox.strategies.NetworkFirst()
   );
 
@@ -26,13 +33,6 @@ if (workbox) {
     ({
       url
     }) => url.pathname.startsWith('/jss/Chart.min.js'),
-    new workbox.strategies.StaleWhileRevalidate()
-  );
-
-  workbox.routing.registerRoute(
-    ({
-      url
-    }) => url.pathname.startsWith('/appshell'),
     new workbox.strategies.StaleWhileRevalidate()
   );
 } else {
