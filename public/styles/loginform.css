@@ -1,12 +1,13 @@
 #register, #login {
-  position: fixed;
-  margin-top: 6rem;
+  position: absolute;
+  margin-top: 5rem;
   height: 100vh;
   background-color: #6fd9e7af;
   z-index: 110;
   padding: 10px;
   padding-top: 20px;
   width: 100%;
+  overflow: auto;
 }
 
 #register form, #login form {

@@ -123,8 +123,8 @@ main {
     z-index: 3;
     width: 3.7rem;
     height: 3.7rem;
-    top: 90%;
-    right: 2%;
+    top: 85%;
+    right: 4%;
     /* background-color: #2A99ED; */
     background-color: #6fd9e7;
     border-radius: 50%;
@@ -135,7 +135,7 @@ main {
     cursor: pointer;
 }
 
-#lnmodels {
+#submodels,#lnmodels {
     position: fixed;
     z-index: 2;
     height: 100%;

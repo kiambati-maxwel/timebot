@@ -58,10 +58,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
-            }
+              beginAtZero: true,
+              stepSize: 1
+            },
+            // stacked: true
           }]
-        }
+        },
+        // showLine: false
       }
     });
     const modelStats = document.querySelector('#modelStats');

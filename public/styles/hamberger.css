@@ -49,21 +49,19 @@
     position: absolute;
     z-index: 99;
     height: 100%;
-    width: 100%;
+    width: 5%;
     top: 3rem;
     right: 8%;
     height: 22px;
-    width: 5px;
 }
 
 .spinner {
     transition: all 0.3s;
     box-sizing: border-box;
     position: absolute;
-    height: 5px;
+    height: 4px;
     width: 100%;
     background-color: rgb(0, 0, 0);
-    border-radius: 50%;
 }
 
 .horizontal {
@@ -102,7 +100,7 @@
     box-sizing: border-box;
     transform: rotate(45deg);
     margin-top: 9px;
-    width: 22x;
+    width: 22px;
     border-radius: 0;
     height: 3px;
     background-color: rgb(119, 3, 3);
@@ -112,8 +110,8 @@
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(-45deg);
-    margin-top: -11.8px;
-    width: 22x;
+    margin-top: -10.8px;
+    width: 22px;
     border-radius: 0;
     height: 3px;
     background-color: rgb(119, 3, 3);
@@ -145,8 +143,9 @@
 .stats-sec {
     height: 40vh;
     width: 90%;
-    /* background-color: blue; */
+
 }
+
 .side-menu-container{
     width: 100%;
     overflow: auto;
@@ -187,7 +186,7 @@
 #sub-model-stats{
     width: 90%;
     padding: 15px;
-    height: 60vh;
+    height: 70vh;
     overflow: auto;
 
 }

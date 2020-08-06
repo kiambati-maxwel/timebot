@@ -1,4 +1,5 @@
-#submodel-form, #add-model-form{
+#submodel-form,
+#add-model-form {
     position: fixed;
     z-index: 4;
     padding: 15px;
@@ -12,7 +13,8 @@
     left: 5%;
 }
 
-#submodel-form input[type=text], #add-model-form input[type=text]{
+#submodel-form input[type=text],
+#add-model-form input[type=text] {
     display: block;
     font-size: 1.6rem;
     width: 100%;
@@ -21,14 +23,20 @@
     background-color: rgb(240, 240, 240);
 }
 
-#submodel-form input[type=submit], #add-model-form input[type=submit]{
+#submodel-form input[type=submit],
+#add-model-form input[type=submit] {
     margin-left: 72%;
     margin-top: 1.5rem;
     padding: 6px;
     border-radius: 10px;
     border: none;
     font-size: 1.2rem;
-    background-color: #713dd2;
-    color: white;
-    
+    background-color: #3dafd2;
+    color: black
+
+}
+
+#submodel-form input[type=submit]:hover,
+#add-model-form input[type=submit]:hover {
+    background-color: maroon;
 }
