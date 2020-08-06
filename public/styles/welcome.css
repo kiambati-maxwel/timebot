@@ -1,0 +1,68 @@
+/* main logo */
+.main-logo h1{
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: maroon;
+    margin-left: 6%;
+    margin-top: 2rem;
+
+}
+/* logo */
+.logo {
+    position: absolute;
+    left: 10%;
+    top: 1rem;
+    font-family: 'Caveat', cursive;
+    font-size: .7rem;
+    color: maroon;
+}
+
+/* app view intro welcome section */
+.global-form, .app-view {
+    position: relative;
+    border-radius: 20px;
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+    background: #FFFFFF;
+    box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.507);
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* --- login btn --- */
+
+.btn-welcome {
+    padding: 7px 15px;
+    border-radius: 60px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: #009688;
+    cursor: pointer;
+    width: 8rem;
+    margin: auto;
+    text-decoration: none;
+    color: black;
+
+}
+
+/* sign up */
+.welcome-signup {
+    padding-top: 2.5rem;
+    padding-bottom: 1.2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.welcome-signup+a {
+    margin-top: 3rem;
+    font-weight: 600;
+    color: green;
+    font-size: 1.3rem;
+}

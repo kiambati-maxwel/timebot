@@ -1,0 +1,60 @@
+/* model */
+
+
+.model a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+
+.model {
+
+  padding: 1rem;
+  border-radius: 20px;
+  width: 85%;
+  color: black;
+  background-color: rgba(50, 209, 50, 0.356);
+  margin-bottom: 2rem;
+  height: 5rem;
+  transition-timing-function: linear;
+  transition-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+}
+
+.model a {
+  width: 100%;
+  color: black;
+  text-decoration: none;
+  transition-duration: .5s;
+  padding: 5% 25px 5% 0;
+
+  /* border: solid 1px black; */
+
+}
+
+.model a:hover {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.model-2 {
+  /* margin-left: 13%; */
+  background-color: rgba(84, 84, 231, 0.377);
+}
+
+.model-3 {
+  /* margin-left: 26%; */
+  background-color: rgba(255, 166, 0, 0.336);
+}
+
+.model-4 {
+  /* margin-left: 13%; */
+  background-color: rgba(255, 192, 203, 0.363);
+}
+
+.model-5 {
+  background-color: rgba(255, 68, 0, 0.322);
+}

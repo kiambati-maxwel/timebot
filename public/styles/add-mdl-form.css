@@ -1,0 +1,34 @@
+#submodel-form, #add-model-form{
+    position: fixed;
+    z-index: 4;
+    padding: 15px;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    height: 10rem;
+    width: 90%;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    top: 18vh;
+    left: 5%;
+}
+
+#submodel-form input[type=text], #add-model-form input[type=text]{
+    display: block;
+    font-size: 1.6rem;
+    width: 100%;
+    border: none;
+    border-bottom: 1px black solid;
+    background-color: rgb(240, 240, 240);
+}
+
+#submodel-form input[type=submit], #add-model-form input[type=submit]{
+    margin-left: 72%;
+    margin-top: 1.5rem;
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.2rem;
+    background-color: #713dd2;
+    color: white;
+    
+}

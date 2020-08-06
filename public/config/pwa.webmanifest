@@ -1,0 +1,16 @@
+{
+  "name": "timeBot PWA_DEV",
+  "short_name": "timeBot",
+  "description": "agile time management app",
+  "icons": [
+    {
+      "src": "/../images/logo512-2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#6FD9E7",
+  "background_color": "#6FD9E7"
+}
