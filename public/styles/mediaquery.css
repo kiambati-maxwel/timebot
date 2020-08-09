@@ -31,7 +31,7 @@
         margin-top: 3rem;
     }
 
-    #lnmodels {
+    #submodels, #lnmodels {
         position: unset;
         border-radius: 20px;
         height: 65vh;
