@@ -48,31 +48,31 @@ router.get('/sts', async (req, res) => {
           switch (yesterday.getDay()) {
             case 0:
               // code block
-              dayNameGraph = 'sunday';
+              dayNameGraph = 'Sun';
               break;
             case 1:
               // code block
-              dayNameGraph = 'monday';
+              dayNameGraph = 'Mon';
               break;
             case 2:
               // code block
-              dayNameGraph = 'tuesady';
+              dayNameGraph = 'Tue';
               break;
             case 3:
               // code block
-              dayNameGraph = 'wednesday';
+              dayNameGraph = 'Wed';
               break;
             case 4:
               // code block
-              dayNameGraph = 'thursady';
+              dayNameGraph = 'Thu';
               break;
             case 5:
               // code block
-              dayNameGraph = 'friday';
+              dayNameGraph = 'Fri';
               break;
             case 6:
               // code block
-              dayNameGraph = 'saturday';
+              dayNameGraph = 'Sat';
               break;
 
             default:

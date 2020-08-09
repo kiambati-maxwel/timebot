@@ -1,6 +1,10 @@
 /* --- header --- */
 body{
     overflow: hidden;
+    background-color: #212121;
+    /* color: #6FD9E7; */
+    color: #6fd9e7b9;
+    /* background-color: black; */
 }
 
 header {
@@ -11,7 +15,21 @@ header {
     box-shadow: none;
     /* background-color: #2A99ED; */
     /* background-color: #92B4E6; */
-    background-color: #6FD9E7;
+    /* background-color: #6FD9E7; */
+    /* background-color: #6FD9E7; */
+    /* background-color: #1DA1F2; */
+    background-color: rgb(19, 19, 19);
+
+    /* icon blue */
+    /* 2196f3 */
+
+    /* btn */
+    /* #0392C2 */
+
+    /*  main */
+    /* background-color: #48DAC6; */
+    /* background-color: #218786; */
+
     /* theme color test */
     /* background: linear-gradient(#2A99ED 0%,#2a98edd7 100%); */
     position: fixed;
@@ -126,11 +144,15 @@ main {
     top: 85%;
     right: 4%;
     /* background-color: #2A99ED; */
-    background-color: #6fd9e7;
+    /* background-color: #48DAC6; */
+    /* background-color: #1DA1F2; */
+    /* background-color: #eeeeee; */
+    /* background-color: #6ea9b1; */
+    background-color: #438088;
     border-radius: 50%;
     font-size: 3rem;
     border: none;
-    box-shadow: -2px 3px 15px rgba(0, 0, 0, 0.733);
+    box-shadow: -2px 3px 15px rgba(0, 0, 0, 0.431);
     padding: 0;
     cursor: pointer;
 }
@@ -158,12 +180,12 @@ main {
     text-align: center;
     z-index: 113;
     margin: 0 auto;
-    background-color: #6FD9E7;
+    background-color: rgb(19, 19, 19);
     padding: 5px;
     border-radius: 20px;
     font-size: 2rem;
     width: 90%;
-    color: rgb(82, 82, 82);
+    color: #6ea9b1;
 }
 #sub-container-dashboard{
     padding-top: 9vh;

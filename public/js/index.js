@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', async () => {
           label: '# time in hrs',
           data: data.dayGraphArray,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.05)',
+            'rgba(255, 99, 132, 0.1)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
@@ -59,9 +59,27 @@ window.addEventListener('DOMContentLoaded', async () => {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              stepSize: 1
+              stepSize: 1,
+              fontSize: 22,
+              fontColor: '#9e9e9e'
             },
+            gridLines: {
+              // display: false
+              // color: "#9e9e9e"
+              zeroLineColor: '#6ea9b1',
+            }
             // stacked: true
+          }],
+          xAxes: [{
+            gridLines: {
+              // display: false
+              // color: "#9e9e9e"
+              zeroLineColor: '#6ea9b1'
+            },
+            ticks: {
+              fontSize: 15,
+              fontColor: '#9e9e9e'
+            }
           }]
         },
         // showLine: false

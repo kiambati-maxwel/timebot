@@ -4,7 +4,8 @@
   z-index: 22;
   width: 100%;
   top: 20vh;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  background-color: #212121;
   height: 80vh;
 }
 #clear-timer-btn{
@@ -25,10 +26,10 @@
   align-content: center;
   height: 12rem;
   width: 12rem;
-  border: solid #92B4E6 1px;
+  border: solid green 1px;
   border-radius: 50%;
   text-align: center;
-  color: rgb(31, 31, 31);
+  color: greenyellow;
   font-size: 2rem;
 }
 
@@ -47,7 +48,7 @@
 
   cursor: pointer;
 
-  border-color: transparent transparent transparent #92B4E6;
+  border-color: transparent transparent transparent green;
   transition: 100ms all ease;
   will-change: border-width;
 
@@ -59,7 +60,7 @@
 
 }
 .play-pause label:hover {
-   border-color: transparent transparent transparent rgb(133, 61, 97);
+   border-color: transparent transparent transparent green;
 }
 .play-pause input[type='checkbox'] {
   visibility: hidden;
@@ -81,15 +82,19 @@
   border-radius: 50%;
   height: 4rem;
   width: 4rem;
-  background-color: #92B4E6;
+  background-color: #438088;
+  /* background-color: rgb(0, 44, 0); */
   color: black;
+  /* color: #6FD9E7; */
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 #savetimebtn:hover,
 #resetbtn:hover {
-  background-color: rgb(133, 61, 97);
+  /* background-color: rgb(133, 61, 97); */
+  background-color: green;
 }
 
 #savetimebtn {

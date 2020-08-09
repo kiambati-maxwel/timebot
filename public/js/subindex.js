@@ -67,11 +67,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         subModelNameTimer.innerText = model.innerText;
         modelResize.forEach(e => {
           if (e.id !== model.id) {
-            e.style.backgroundColor = "yellow";
+            // e.style.backgroundColor = "yellow";
+            e.style.backgroundColor = "rgb(14, 14, 14)";
+            e.style.color = "#000000";
             e.style.opacity = "0.5";
             e.style.transitionDuration = ".7s";
           } else {
-            e.style.backgroundColor = "green";
+            e.style.backgroundColor = "#000000"
             e.style.transitionDuration = ".1s";
             e.style.opacity = "1";
           }
@@ -93,7 +95,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const time_today_an = [];
 
     if (info[0] === undefined) {
-      totalTimeSpen.innerText = `total time : 0`;
+      totalTimeSpen.innerHTML = `total time :<span>0</span>`;
     } else {
       const dateToday = new Date();
 
@@ -136,7 +138,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     subTopicTime.forEach(e => {
       let appendAnTime = document.createElement('li');
-      appendAnTime.innerText = `${e.name} : ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min`;
+      appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
       totalTanlysed.prepend(appendAnTime);
     });
 
@@ -165,12 +167,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     subTopicTimetoday.forEach(e => {
       let appendAnTime = document.createElement('li');
-      appendAnTime.innerText = `${e.name} : ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min`;
+      appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
       analysedToday.prepend(appendAnTime);
     });
 
-    totalTimeSpen.innerText = `total time : ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min`;
-    tTimeToday.innerText = `Today : ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min`;
+    totalTimeSpen.innerHTML = `total time : <span> ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min </span>`;
+    tTimeToday.innerHTML = `Today : <span> ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min </span>`;
   });
 });
 

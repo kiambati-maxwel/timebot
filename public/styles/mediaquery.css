@@ -128,19 +128,25 @@
         overflow: auto;
         top: 2rem;
         right: 5%;
-        background: linear-gradient(#75c8d3 0%, #88DFEA 100%);
+        background-color: #212121;
+        border-radius: 10px;
+        /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         top: 0;
+        border: solid 1px green;
     }
 
     #sub-model-stats {
+        border-radius: 10px;
         position: fixed;
         left: 7%;
         height: 50vh;
-        background: linear-gradient(#75c8d3 0%, #88DFEA 100%);
+        background-color: #212121;
+        /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         margin-top: 7vh;
         z-index: 40;
         width: 40%;
         overflow: uset;
+        border: solid 1px green;
     }
 
     .stats-sec {
@@ -156,7 +162,7 @@
         font-size: 1.4rem;
         border-radius: 20px;
         border: none;
-        background: linear-gradient(#75c8d3 0%, #88DFEA 100%);
+        /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         color: black;
         cursor: poipointernter;
     }
@@ -202,7 +208,7 @@
     #sub-model-stats::-webkit-scrollbar-track,
     #modelStats::-webkit-scrollbar-track,
     .ln-models::-webkit-scrollbar-track {
-        background: #ececec;
+        background: #438088;
 
         /* box-shadow: inset 0 0 5px #5F93C0; */
     }
@@ -211,7 +217,7 @@
     #sub-model-stats::-webkit-scrollbar-thumb,
     #modelStats::-webkit-scrollbar-thumb,
     .ln-models::-webkit-scrollbar-thumb {
-        background: #6FD9E7;
+        background: #000000;
         border-radius: 10px;
     }
 
@@ -219,7 +225,7 @@
     #sub-model-stats::-webkit-scrollbar-thumb:hover,
     #modelStat::-webkit-scrollbar-thumb:hover,
     .ln-models::-webkit-scrollbar-thumb:hover {
-        background: rgb(200, 200, 200);
+        background: rgb(5, 4, 4);
     }
 
 
@@ -228,7 +234,6 @@
         z-index: 19;
         width: 45%;
         top: 15vh;
-        background-color: white;
         height: 60vh;
         right: 5%;
     }
