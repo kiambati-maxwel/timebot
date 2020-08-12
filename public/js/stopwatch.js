@@ -32,16 +32,16 @@ const submdl_timer = {
 
   // stop watch logic
   stopWatch: function () {
-    submdl_timer.seconds++;
+    submdl_timer.seconds += 1;
 
     // logic is determines when increament next value
 
     if (submdl_timer.seconds / 60 === 1) {
       submdl_timer.seconds = 0;
-      submdl_timer.minutes++;
+      submdl_timer.minutes += 1;
       if (submdl_timer.minutes / 60 === 1) {
         submdl_timer.minutes = 0;
-        submdl_timer.hours++;
+        submdl_timer.hours += 1;
       }
     }
 

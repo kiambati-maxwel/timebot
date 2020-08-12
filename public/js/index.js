@@ -23,9 +23,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
   });
   await get_time_sts().then(data => {
-    console.log(data);
-    console.log(data.dayNameGraphArray);
-    console.log(data.dayGraphArray);
+    // console.log(data);
+    // console.log(data.dayNameGraphArray);
+    // console.log(data.dayGraphArray);
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const myChart = new Chart(ctx, {
@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     modelStats.appendChild(todaysts);
     const Ttime = document.createElement('h3');
-    Ttime.innerHTML = `total time : <span>${Math.trunc(data.totalTime / 60)} hr ${Math.trunc(data.totalTime % 60)} min </span>`
+    Ttime.innerHTML = `Total : <span>${Math.trunc(data.totalTime / 60)} hr ${Math.trunc(data.totalTime % 60)} min </span>`
     modelStats.appendChild(Ttime);
     const mli = document.createElement('ul');
     data.modelTime.forEach(e => {

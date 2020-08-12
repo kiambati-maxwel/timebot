@@ -87,7 +87,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     let d = null;
     let t = null;
     let tt = null;
-    let ttd = null;
+    let ttd = 0;
     const subTopic = [];
     const subTopicToday = []
     const subTopicTime = [];
@@ -144,34 +144,33 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // populate time for each submodel today
     time_today_an.forEach(info => {
-      if (subTopicTimetoday.length < 1 || subTopicToday.includes(info.name) !== true) {
-        time_today_an.filter(info => {
+      if (subTopicTimetoday.length < 1 || subTopicToday.includes(info.name) === false) {
+        time_today_an.filter(data => {
           /* filter subtopic name in info get request data */
-          return info.name;
+          return info.name === data.name;
         }).map(sbn => {
           return sbn.time /* map time into an array */
         }).forEach(e => {
-
           ttd += e;
-
         });
         subTopicToday.push(info.name);
         subTopicTimetoday.push({
           name: info.name,
           time: ttd
         });
-        ttd = null;
-
       }
+      ttd = null;
     });
 
+    console.log(subTopicTimetoday);
+    console.log(time_today_an);
     subTopicTimetoday.forEach(e => {
       let appendAnTime = document.createElement('li');
       appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
       analysedToday.prepend(appendAnTime);
     });
 
-    totalTimeSpen.innerHTML = `total time : <span> ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min </span>`;
+    totalTimeSpen.innerHTML = `Total : <span> ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min </span>`;
     tTimeToday.innerHTML = `Today : <span> ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min </span>`;
   });
 });

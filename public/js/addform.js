@@ -19,13 +19,11 @@ function clearElement(element) {
 }
 
 if (submod.id === 'lnmodels') {
-  console.log(localStorage.tenant_ID);
-  console.log('djhskjdsildskjsd');
+  // console.log(localStorage.tenant_ID);
   const ifnoaccount = document.querySelector('.if-no-account');
   const registerr = document.querySelector('#register');
 
   ifnoaccount.addEventListener('click', () => {
-    console.log('is acount');
     clearElement(registerr);
   });
 
