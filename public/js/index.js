@@ -122,7 +122,17 @@ window.addEventListener('DOMContentLoaded', async () => {
     getDateActivity.addEventListener('submit', getDateData);
 
     function getDateData(e) {
+
       e.preventDefault();
+      render_date_activity.style.display = 'unset';
+      render_date_activity.innerHTML = '';
+      const clear_btn = document.createElement('button');
+      clear_btn.innerText = 'close'
+      clear_btn.addEventListener('click', () => {
+        render_date_activity.style.display = 'none';
+      });
+      render_date_activity.appendChild(clear_btn);
+
       const date_names_handler = [];
       const time_date = [];
       let total_time = 0;
@@ -156,8 +166,6 @@ window.addEventListener('DOMContentLoaded', async () => {
           total_time = 0;
         }
       });
-
-      render_date_activity.innerHTML = '';
 
       const handle_lender = [];
 

@@ -302,4 +302,17 @@
     #render-date-activity span{
         display: inline;
     }
+    #render-date-activity button{
+        margin-left: 84%;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background: rgb(85, 1, 1);
+        display: unset;
+        padding: 10px;
+        margin-bottom: 1rem;
+        color: white;
+        font-weight: 600;
+    }
 }

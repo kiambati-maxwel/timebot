@@ -235,6 +235,9 @@
     margin-bottom: 1rem;
     list-style-type: none;
 }
+#render-date-activity button{
+    display: none;
+}
 
 
 
