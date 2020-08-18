@@ -126,6 +126,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       const date_names_handler = [];
       const time_date = [];
       let total_time = 0;
+      let handleLis = [];
       const myDate = new Date(dateInput.value);
       const on_this_date = globalData.filter(data => {
         const date = new Date(data.createdAt)
@@ -133,6 +134,9 @@ window.addEventListener('DOMContentLoaded', async () => {
           date.getMonth() === myDate.getMonth() &&
           date.getDate() === myDate.getDate();
       });
+      if (on_this_date.length < 1) {
+        window.alert('date  not recorded please confirm entries for this DATE');
+      }
       on_this_date.forEach(e => {
         if (date_names_handler.length < 1 || date_names_handler.includes(e.name) === false) {
           date_names_handler.push(name);
@@ -156,6 +160,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       render_date_activity.innerHTML = '';
 
       const handle_lender = [];
+
       time_date.forEach(e => {
         if (handle_lender.includes(e.mainModelName) === false) {
           handle_lender.push(e.mainModelName);
@@ -170,12 +175,15 @@ window.addEventListener('DOMContentLoaded', async () => {
           time_date.filter(data => {
             return data.mainModelName === e.mainModelName
           }).forEach(e => {
-
-            const li = document.createElement('li')
-            li.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span> `;
-            ul.appendChild(li);
+            if (handleLis.includes(e.name) === false) {
+              handleLis.push(e.name);
+              const li = document.createElement('li')
+              li.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span> `;
+              ul.appendChild(li);
+            }
 
           });
+          handleLis = [];
           render_date_activity.appendChild(ul);
           render_date_activity.style.backgroundColor = '#303030';
         }

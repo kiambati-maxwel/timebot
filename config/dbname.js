@@ -1,7 +1,7 @@
 /* eslint-disable */
 const whichdb = {
-  testdb: 'timeBot',
-  proddb: 'studybottest'
+  testdb: 'studybottest',
+  proddb: 'timeBot'
 };
 
 module.exports = whichdb;
