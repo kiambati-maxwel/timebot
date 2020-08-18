@@ -120,6 +120,8 @@
         padding: 10px;
         z-index: 5;
         background: unset;
+        height: 80vh;
+        overflow: hidden;
     }
 
     #modelStats {
@@ -197,6 +199,7 @@
     }
 
     /* width */
+    #render-date-activity::-webkit-scrollbar,
     #sub-model-stats::-webkit-scrollbar,
     #modelStats::-webkit-scrollbar,
     .ln-models::-webkit-scrollbar {
@@ -205,6 +208,7 @@
     }
 
     /* Track */
+    #render-date-activity::-webkit-scrollbar-track,
     #sub-model-stats::-webkit-scrollbar-track,
     #modelStats::-webkit-scrollbar-track,
     .ln-models::-webkit-scrollbar-track {
@@ -214,6 +218,7 @@
     }
 
     /* Handle */
+    #render-date-activity::-webkit-scrollbar-thumb,
     #sub-model-stats::-webkit-scrollbar-thumb,
     #modelStats::-webkit-scrollbar-thumb,
     .ln-models::-webkit-scrollbar-thumb {
@@ -222,6 +227,7 @@
     }
 
     /* Handle on hover */
+    #render-date-activit::-webkit-scrollbar-thumb:hover,
     #sub-model-stats::-webkit-scrollbar-thumb:hover,
     #modelStat::-webkit-scrollbar-thumb:hover,
     .ln-models::-webkit-scrollbar-thumb:hover {
@@ -274,5 +280,26 @@
     }
     #s-timer{
         display: unset;
+    }
+
+    #search-by-date-form{
+        position: absolute;
+        display: inline;
+        left: 25%;
+        z-index: 200;
+    }
+    #render-date-activity{
+        position: absolute;
+        height: 57vh;
+        left: 7%;
+        width: 88%;
+        top: 4rem;
+        overflow: auto;
+        border-radius: 10px;
+        padding: 5px;
+        display: inline-block;
+    }
+    #render-date-activity span{
+        display: inline;
     }
 }

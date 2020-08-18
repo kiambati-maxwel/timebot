@@ -99,8 +99,17 @@
 	<!-- side navigation-->
 	<nav id="sidebarMenu">
 		<a><span class="logout-label">logout</span></a>
+		<form id="search-by-date-form">
+			<!-- <label for="search-by-date">typein the date</label> -->
 
+			<input type="date" name="search-by-date" id="search-by-date">
+			<input type="submit" value="submit">
+		</form>
 		<div class="side-menu-container">
+
+			<section id="render-date-activity">
+
+			</section>
 
 			<section class="stats-sec">
 
@@ -118,11 +127,14 @@
 
 			</div>
 			<!-- stats interprated show btn -->
+
 			<button class="show-stats" onclick="clearElement(modelStats)">Statistics</button>
+
 			<footer>
-				<small>&copy; max 2020</small>
+				<small>&copy; max 2120</small>
 			</footer>
 		</div>
+
 	</nav>
 
 	<!-- main section -->
@@ -155,7 +167,7 @@
 	<script src="/jss/Chart.min.js"></script>
 	<script src="/js/index.js" type="module"></script>
 	<script src="/js/addform.js"></script>
-	<script src="/js/pwa.js"></script>
+	<!-- <script src="/js/pwa.js"></script> -->
 
 </body>
 

@@ -140,6 +140,7 @@ router.get('/sts', async (req, res) => {
 
 
     res.status(200).json({
+      allTime,
       totalTime,
       modelTime,
       totalTimeToday,

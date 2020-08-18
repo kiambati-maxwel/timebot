@@ -1,4 +1,5 @@
 /* eslint-disable */
+'use strict'
 import {
   get_models,
   get_time_sts
@@ -11,6 +12,7 @@ filterModels();
 
 // populate ln-models
 window.addEventListener('DOMContentLoaded', async () => {
+  let globalData = [];
   await get_models().then(models => {
     models.forEach(m => {
       const model = document.createElement('h1');
@@ -26,6 +28,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     // console.log(data);
     // console.log(data.dayNameGraphArray);
     // console.log(data.dayGraphArray);
+    globalData = data.allTime;
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const myChart = new Chart(ctx, {
@@ -111,6 +114,77 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     modelStats.appendChild(mli);
   });
+
+  (function dateFinder() {
+    const getDateActivity = document.querySelector('#search-by-date-form');
+    const dateInput = document.querySelector('#search-by-date');
+    const render_date_activity = document.querySelector('#render-date-activity');
+    getDateActivity.addEventListener('submit', getDateData);
+
+    function getDateData(e) {
+      e.preventDefault();
+      const date_names_handler = [];
+      const time_date = [];
+      let total_time = 0;
+      const myDate = new Date(dateInput.value);
+      const on_this_date = globalData.filter(data => {
+        const date = new Date(data.createdAt)
+        return date.getFullYear() === myDate.getFullYear() &&
+          date.getMonth() === myDate.getMonth() &&
+          date.getDate() === myDate.getDate();
+      });
+      on_this_date.forEach(e => {
+        if (date_names_handler.length < 1 || date_names_handler.includes(e.name) === false) {
+          date_names_handler.push(name);
+          on_this_date.filter(info => {
+            return info.mainModelName === e.mainModelName &&
+              info.name === e.name;
+          }).map(t => {
+            return t.time
+          }).forEach(e => {
+            total_time += e
+          });
+          time_date.push({
+            mainModelName: e.mainModelName,
+            name: e.name,
+            time: total_time
+          });
+          total_time = 0;
+        }
+      });
+
+      render_date_activity.innerHTML = '';
+
+      const handle_lender = [];
+      time_date.forEach(e => {
+        if (handle_lender.includes(e.mainModelName) === false) {
+          handle_lender.push(e.mainModelName);
+          const nammme = e.mainModelName;
+          const h3 = document.createElement('h3');
+          h3.innerHTML = nammme;
+
+          render_date_activity.appendChild(h3);
+
+          const ul = document.createElement('ul');
+
+          time_date.filter(data => {
+            return data.mainModelName === e.mainModelName
+          }).forEach(e => {
+
+            const li = document.createElement('li')
+            li.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span> `;
+            ul.appendChild(li);
+
+          });
+          render_date_activity.appendChild(ul);
+          render_date_activity.style.backgroundColor = '#303030';
+        }
+      });
+      // console.log(on_this_date);
+      // console.log(time_date);
+    }
+  }());
+
 });
 
 // logout function
