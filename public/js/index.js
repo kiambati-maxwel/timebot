@@ -124,7 +124,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     function getDateData(e) {
 
       e.preventDefault();
-      render_date_activity.style.display = 'unset';
+      render_date_activity.style.display = 'block';
       render_date_activity.innerHTML = '';
       const clear_btn = document.createElement('button');
       clear_btn.innerText = 'close'

@@ -130,11 +130,10 @@
         overflow: auto;
         top: 2rem;
         right: 5%;
-        background-color: #212121;
+        background-color: #303030;
         border-radius: 10px;
         /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         top: 0;
-        border: solid 1px green;
     }
 
     #sub-model-stats {
@@ -142,13 +141,12 @@
         position: fixed;
         left: 7%;
         height: 50vh;
-        background-color: #212121;
+        background-color: #303030;
         /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         margin-top: 7vh;
         z-index: 40;
         width: 40%;
         overflow: uset;
-        border: solid 1px green;
     }
 
     .stats-sec {
@@ -239,7 +237,8 @@
         position: fixed;
         z-index: 19;
         width: 45%;
-        top: 15vh;
+        top: 15vh;    /* background-color: #303030; */
+        /* color: wheat; */
         height: 60vh;
         right: 5%;
     }
@@ -285,12 +284,13 @@
     #search-by-date-form{
         position: absolute;
         display: inline;
-        left: 25%;
+        left: 31%;
         z-index: 200;
+        top: 5px;
     }
     #render-date-activity{
         position: absolute;
-        height: 57vh;
+        height: 50vh;
         left: 7%;
         width: 88%;
         top: 4rem;
@@ -298,6 +298,7 @@
         border-radius: 10px;
         padding: 5px;
         display: inline-block;
+        display: none;
     }
     #render-date-activity span{
         display: inline;

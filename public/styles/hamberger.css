@@ -219,12 +219,34 @@
 #search-by-date-form input{
     font-size: 1.2rem;
     padding: 5px;
-    background-color: #afafaf;
+    background-color: #303030;
+    color: rgb(204, 204, 204);
+
+}
+#search-by-date-form input[type="date"]{
+    border: none;
+    border-bottom: 1px solid wheat;
+    border-radius: 5px;
+}
+#search-by-date-form input[type="submit"]{
+    border: none;
+    outline: none;
+    font-size: 22px;
+    padding: 6px;
+    border-radius: 5px;
+    border-bottom: 1px solid wheat;
+}
+#search-by-date-form input[type="date"]:hover,
+#search-by-date-form input[type="submit"]:hover{
+    cursor: pointer;
 }
 #render-date-activity{
-    padding: 10px;
-    /* background-color: #303030; */
-
+    padding: 20px;
+    background-color: #303030;
+    margin: 5px;
+    width: 100%;
+    margin-top: 1rem;
+    display: none;
 }
 #render-date-activity span {
     color: greenyellow;

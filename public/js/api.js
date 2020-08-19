@@ -2,8 +2,8 @@
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 
-async function get(url) {
-  return await fetch(url).then(onSuccess, onError);
+function get(url) {
+  return fetch(url).then(onSuccess, onError);
 }
 
 function onSuccess(response) {
