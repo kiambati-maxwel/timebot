@@ -10,7 +10,9 @@ const router = express.Router();
 // -------------------------------- GET request ------------------
 router.get('/getsubmdl', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
+    useCache: true
+  });
 
   const Submodel = await db.model("submodels");
 
@@ -27,11 +29,15 @@ router.get('/getsubmdl', async (req, res) => {
 // test route
 router.get('/lenderSmodels/:subMname', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
+    useCache: true
+  });
 
   const Submodel = await db.model("submodels");
 
-  await Submodel.find({ mainMname: req.params.subMname }, (err, submodelsValue) => {
+  await Submodel.find({
+    mainMname: req.params.subMname
+  }, (err, submodelsValue) => {
     // res.send(submodelsValue);
     res.send(submodelsValue);
     if (err) {
@@ -44,13 +50,19 @@ router.get('/lenderSmodels/:subMname', async (req, res) => {
 
 router.get('/:subMname', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
+    useCache: true
+  });
 
   const Submodel = await db.model("submodels");
-  await Submodel.find({ mainMname: req.params.subMname }, (err, submodelsValue) => {
+  await Submodel.find({
+    mainMname: req.params.subMname
+  }, (err, submodelsValue) => {
     // res.send(submodelsValue);
     if (submodelsValue[0] === undefined) {
-      res.render('sub_models', { lenderMname: req.params.subMname });
+      res.render('sub_models', {
+        lenderMname: req.params.subMname
+      });
     } else if (submodelsValue[0] !== undefined) {
       res.render('sub_models', {
         lenderMname: submodelsValue[0].mainMname,
@@ -71,26 +83,20 @@ router.post('/addmdl', async (req, res) => {
     name
   } = req.body;
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
+    useCache: true
+  });
 
   const Submodel = await db.model("submodels");
   // --- find the number of models to create a unique id
-  await Submodel.find({ mainMname }, async (err, nofModels) => {
-    let id;
+  await Submodel.find({
+    mainMname
+  }, async (err, nofModels) => {
     let lenderMname;
     if (err) {
       console.log(err);
-    } else if (nofModels[0] === undefined) {
-      id = 1;
-      lenderMname = mainMname;
-    } else {
-      lenderMname = nofModels[0].mainMname;
-      id = nofModels.length + 1;
-      console.log(id);
     }
-
     const newModel = new Submodel({
-      id,
       mainMname,
       name
     });
@@ -109,15 +115,21 @@ router.post('/addmdl', async (req, res) => {
 
 router.delete('/delete/:name', async (req, res) => {
   const dbConnection = await global.clientConnection;
-  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, { useCache: true });
+  const db = await dbConnection.useDb(`${whichdb.proddb}_${req.query.id}`, {
+    useCache: true
+  });
 
   const Submodel = await db.model("submodels");
-  await Submodel.find({ mainMname: req.params.subMname }, (err, submodelsValue) => {
+  await Submodel.find({
+    mainMname: req.params.subMname
+  }, (err, submodelsValue) => {
     // res.send(submodelsValue);
     if (submodelsValue) {
       // destructure
       const mainMname = submodelsValue.name;
-      Submodel.deleteOne({ name: req.params.name }, (err) => {
+      Submodel.deleteOne({
+        name: req.params.name
+      }, (err) => {
         if (err) {
           console.log(err);
         } else {

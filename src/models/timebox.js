@@ -9,6 +9,7 @@ const lnSchema = new Schema({
   },
   mainModelName: {
     type: String,
+    required: true
   },
   time: {
     type: Number,

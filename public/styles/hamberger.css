@@ -141,6 +141,9 @@
     color: black;
     cursor: poipointernter;
 }
+.show-stats:hover{
+    cursor: pointer;
+}
 /* graph */
 .stats{
     padding-top: 8vh;

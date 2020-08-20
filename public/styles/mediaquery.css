@@ -171,7 +171,9 @@
         margin-top: 60vh;
         margin-left: 44.3%;
     }
-
+    .show-stats-submodels:hover{
+        cursor: pointer;
+    }
     /* graph */
     .stats {
         width: 100%;
@@ -315,5 +317,10 @@
         margin-bottom: 1rem;
         color: white;
         font-weight: 600;
+    }
+
+    .top-search-bar input{
+        width: 50%;
+        margin-left: 50%;
     }
 }
