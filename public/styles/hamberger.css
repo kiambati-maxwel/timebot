@@ -143,6 +143,9 @@
 .show-stats:hover{
     cursor: pointer;
 }
+.show-stats:hover{
+    cursor: pointer;
+}
 /* graph */
 .stats{
     padding-top: 8vh;

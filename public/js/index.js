@@ -146,59 +146,60 @@ window.addEventListener('DOMContentLoaded', async () => {
       });
       if (on_this_date.length < 1) {
         window.alert('date  not recorded please confirm entries for this DATE');
-        render_date_activity.style.display = 'none';
+      } else {
+        on_this_date.forEach(e => {
+          if (date_names_handler.length < 1 || date_names_handler.includes(e.name) === false) {
+            date_names_handler.push(name);
+            on_this_date.filter(info => {
+              return info.mainModelName === e.mainModelName &&
+                info.name === e.name;
+            }).map(t => {
+              return t.time
+            }).forEach(e => {
+              total_time += e
+            });
+            time_date.push({
+              mainModelName: e.mainModelName,
+              name: e.name,
+              time: total_time
+            });
+            total_time = 0;
+          }
+        });
+
+        const handle_lender = [];
+
+        time_date.forEach(e => {
+          if (handle_lender.includes(e.mainModelName) === false) {
+            handle_lender.push(e.mainModelName);
+            const nammme = e.mainModelName;
+            const h3 = document.createElement('h3');
+            h3.innerHTML = nammme;
+
+            render_date_activity.appendChild(h3);
+
+            const ul = document.createElement('ul');
+
+            time_date.filter(data => {
+              return data.mainModelName === e.mainModelName
+            }).forEach(e => {
+              if (handleLis.includes(e.name) === false) {
+                handleLis.push(e.name);
+                const li = document.createElement('li')
+                li.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span> `;
+                ul.appendChild(li);
+              }
+
+            });
+            handleLis = [];
+            render_date_activity.appendChild(ul);
+            render_date_activity.style.backgroundColor = '#303030';
+          }
+        });
+        // console.log(on_this_date);
+        // console.log(time_date);
+
       }
-      on_this_date.forEach(e => {
-        if (date_names_handler.length < 1 || date_names_handler.includes(e.name) === false) {
-          date_names_handler.push(name);
-          on_this_date.filter(info => {
-            return info.mainModelName === e.mainModelName &&
-              info.name === e.name;
-          }).map(t => {
-            return t.time
-          }).forEach(e => {
-            total_time += e
-          });
-          time_date.push({
-            mainModelName: e.mainModelName,
-            name: e.name,
-            time: total_time
-          });
-          total_time = 0;
-        }
-      });
-
-      const handle_lender = [];
-
-      time_date.forEach(e => {
-        if (handle_lender.includes(e.mainModelName) === false) {
-          handle_lender.push(e.mainModelName);
-          const nammme = e.mainModelName;
-          const h3 = document.createElement('h3');
-          h3.innerHTML = nammme;
-
-          render_date_activity.appendChild(h3);
-
-          const ul = document.createElement('ul');
-
-          time_date.filter(data => {
-            return data.mainModelName === e.mainModelName
-          }).forEach(e => {
-            if (handleLis.includes(e.name) === false) {
-              handleLis.push(e.name);
-              const li = document.createElement('li')
-              li.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span> `;
-              ul.appendChild(li);
-            }
-
-          });
-          handleLis = [];
-          render_date_activity.appendChild(ul);
-          render_date_activity.style.backgroundColor = '#303030';
-        }
-      });
-      // console.log(on_this_date);
-      // console.log(time_date);
     }
   }());
 
