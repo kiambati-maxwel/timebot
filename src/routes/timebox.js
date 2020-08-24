@@ -203,8 +203,8 @@ router.post('/saveme', async (req, res) => {
 
   await newTime.save(err => {
     if (err)
-      res.sendStatus(500);
-    res.sendStatus(201);
+      res.status(500);
+    res.status(201);
   });
 });
 

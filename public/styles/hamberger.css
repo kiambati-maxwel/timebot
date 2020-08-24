@@ -139,7 +139,9 @@
     /* background-color: #48DAC6; */
     /* background: linear-gradient(#46767c 0%, #76c0ca 100%); */
     color: black;
-    cursor: poipointernter;
+}
+.show-stats:hover{
+    cursor: pointer;
 }
 /* graph */
 .stats{

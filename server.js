@@ -39,7 +39,7 @@ function server_1() {
   global.appRoot = _path.default.resolve(__dirname); // serving static files
   // in production this path .....
 
-  app.use(_express.default.static(_path.default.join(__dirname, '/public')));
+  app.use(_express.default.static(_path.default.join(__dirname, '/dist')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/chart.js/dist'))); // ejs
 

@@ -57,8 +57,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       let aElement = document.createElement('a');
       aElement.innerHTML = `${e.name}`;
       model.appendChild(aElement);
-      model.classList = `model model-${e.id}`;
-      model.id = e.id;
+      model.classList = `model model-${e._id}`;
+      model.id = e._id;
       document.querySelector('#submodels').prepend(model);
 
       model.addEventListener('click', () => {

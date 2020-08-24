@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       aElement.href = `/submodels/${m.name}?id=${localStorage.tenant_ID}`;
       aElement.innerHTML = `${decodeURI(m.name)}`;
       model.appendChild(aElement);
-      model.classList = `model model-${m.id}`;
+      model.classList = `model model-${m._id}`;
       document.querySelector('#lnmodels').prepend(model);
     });
   });
@@ -146,6 +146,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       });
       if (on_this_date.length < 1) {
         window.alert('date  not recorded please confirm entries for this DATE');
+        render_date_activity.style.display = 'none';
       }
       on_this_date.forEach(e => {
         if (date_names_handler.length < 1 || date_names_handler.includes(e.name) === false) {

@@ -70,7 +70,7 @@ const submdl_timer = {
 
   totalTimeSpent: async function () {
     const totalTime = submdl_timer.hours * 60 + submdl_timer.minutes + submdl_timer.seconds / 60;
-    console.log(totalTime);
+    // console.log(totalTime);
     if (submdl_timer.subModuleName.innerText === '') {
       alert('select submodule');
     } else {
@@ -79,7 +79,7 @@ const submdl_timer = {
         mainModelName: submdl_timer.moduleLender.innerText,
         time: totalTime
       };
-      console.log(send);
+      // console.log(send);
       await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
     }
     submdl_timer.reset();
@@ -128,7 +128,7 @@ const submdl_timer = {
     if (localStorage.timeInit) {
       const send = JSON.parse(localStorage.timeInit);
       post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
-      console.log(send);
+      // console.log(send);
       localStorage.removeItem('timeInit');
     }
   }

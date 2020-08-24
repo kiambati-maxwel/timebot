@@ -30,7 +30,7 @@ function server_1() {
 
   // serving static files
   // in production this path .....
-  app.use(express.static(path.join(__dirname, '/public')));
+  app.use(express.static(path.join(__dirname, '/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/chart.js/dist')));
 
