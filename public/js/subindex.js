@@ -162,8 +162,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       ttd = null;
     });
 
-    console.log(subTopicTimetoday);
-    console.log(time_today_an);
+    // console.log(subTopicTimetoday);
+    // console.log(time_today_an);
     subTopicTimetoday.forEach(e => {
       let appendAnTime = document.createElement('li');
       appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;

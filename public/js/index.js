@@ -146,6 +146,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       });
       if (on_this_date.length < 1) {
         window.alert('date  not recorded please confirm entries for this DATE');
+        render_date_activity.style.display = 'none';
       } else {
         on_this_date.forEach(e => {
           if (date_names_handler.length < 1 || date_names_handler.includes(e.name) === false) {
