@@ -306,7 +306,8 @@
         display: inline;
     }
     #render-date-activity button{
-        margin-left: 84%;
+        position: fixed;
+        left: 84%;
         font-size: 1rem;
         border-radius: 5px;
         border: none;
@@ -317,6 +318,9 @@
         margin-bottom: 1rem;
         color: white;
         font-weight: 600;
+    }
+    #render-date-activity button:hover{
+        cursor: pointer;
     }
 
     .top-search-bar input{
