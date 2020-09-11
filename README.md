@@ -9,7 +9,7 @@ spent in learning
 * browser preferably chrome
 
 ## installation 
-1. clone the app from github 
+1. clone the app from github `` git clone https://github.com/kiambati-maxwel/timebot.git ``
 2. run  ` npm i --save ` to install all nodejs depedencies 
 3. open Folder in terminal
 4. checkout into `date-search ` branch ` git checkout date-search `
