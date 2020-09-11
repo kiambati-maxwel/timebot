@@ -6,7 +6,8 @@ spent in learning
 ## requirements
 * nodejs version 8 or later
 * git 
-* browser preferably chrome
+* Browser preferably chrome
+* Mongodb 
 
 ## installation 
 1. clone the app from github `` git clone https://github.com/kiambati-maxwel/timebot.git ``
