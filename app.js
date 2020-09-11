@@ -29,7 +29,7 @@ function server_1() {
   global.appRoot = path.resolve(__dirname);
 
   // serving static files
-  // in production this path .....
+  // in production chage this path .....
   app.use(express.static(path.join(__dirname, '/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
   app.use('/jss', express.static(path.join(__dirname, '/node_modules/chart.js/dist')));
