@@ -7,9 +7,10 @@ spent in learning
 
 1. clone the app from github 
 2. run  ` npm i --save `
-3. open Folder in terminal and start the server ,, you need internet connection when you first start the server inorder to inject workbox precache
-4. run ` npm start ` on the terminal
-5. navigate to localhost port 2000 in chrome browser 
+3. open Folder in terminal and start the server ,, you need internet connection when you first start the server inorder to inject workbox precache.
+4. checkout into `date-search ` branch ` git checkout date-search `
+5. run ` npm start ` on the terminal
+6. navigate to localhost port 2000 in chrome browser 
 
 ## how to use 
 1. login then proceed to the main page 
