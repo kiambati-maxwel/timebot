@@ -35,7 +35,16 @@ git checkout date-search
 ### 5. run 
 ``` 
 npm i bcryptjs core-js 
+
 ```
+then if there are vulnerabilities run
+```
+
+npm audit fix
+
+```
+
+ignore anymore warnings
 ### 6. run  
 ```
 npm run build
@@ -56,5 +65,6 @@ to start the server ` you need internet connection when you first start the serv
 2. add main module / modules or subject you want to learn with the add btn 
 3. click on the module then add submodules or subtopics 
 4. select that particular subtopic you want to learn and start the time 
-5. when completed save the time 
+5. when completed save the time.
 
+#### To add application as a PWA click the + icon that apears on the right side of chromes search bar 
