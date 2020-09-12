@@ -4,21 +4,55 @@ timeBot is an agile time management app , gives an anlysis of time
 spent in learning
 
 ## requirements
-* nodejs version 8 or later
+* nodejs version 14 or later *Latest stable release
 * git 
 * Browser preferably chrome
 * Mongodb 
-
+   - install mongodb community version.
+   - follow installation instructions for your OS here <a href="https://docs.mongodb.com/manual/administration/install-community/">mongodb installation docs</a>
+   - on windows , after downloading and installing the setup, cd to `C:\program files\mongoDB\bin` and click `mongod` to start mongo db
+  
+      
 ## installation 
-1. clone the app from github `` git clone [repo url]``
-2. run  ` npm i --save ` to install all nodejs depedencies 
-3. open Folder in terminal
-4. checkout into date-search  branch ` git checkout date-search `
-5. run ` npm start ` on the terminal ` you need internet connection when you first start the server inorder to inject workbox precache.`
-6. navigate to localhost port 2000 in chrome browser 
+### 1. Clone the app from github: run
+``` 
+git clone [repo url]
+ 
+ ```
+### 2. open the cloned Folder in terminal
+
+### 3. checkout into date-search branch
+``` 
+git checkout date-search
+
+ ```
+### 4. run 
+ ```
+ npm i 
+ ```
+  to install all nodejs depedencies 
+
+### 5. run 
+``` 
+npm i bcryptjs core-js 
+```
+### 6. run  
+```
+npm run build
+```
+
+### 7. run 
+``` 
+npm run dev-start 
+
+```
+to start the server ` you need internet connection when you first start the server inorder to inject workbox precache.`
+
+### 8. navigate to localhost port 2000 in chrome browser 
 
 ## how to use 
-1. login then proceed to the main page 
+1. register 
+2. login then proceed to the main page 
 2. add main module / modules or subject you want to learn with the add btn 
 3. click on the module then add submodules or subtopics 
 4. select that particular subtopic you want to learn and start the time 
