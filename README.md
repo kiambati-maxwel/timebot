@@ -10,10 +10,10 @@ spent in learning
 * Mongodb 
 
 ## installation 
-1. clone the app from github `` git clone https://github.com/kiambati-maxwel/timebot.git ``
+1. clone the app from github `` git clone [repo url]``
 2. run  ` npm i --save ` to install all nodejs depedencies 
 3. open Folder in terminal
-4. checkout into `date-search ` branch ` git checkout date-search `
+4. checkout into date-search  branch ` git checkout date-search `
 5. run ` npm start ` on the terminal ` you need internet connection when you first start the server inorder to inject workbox precache.`
 6. navigate to localhost port 2000 in chrome browser 
 
