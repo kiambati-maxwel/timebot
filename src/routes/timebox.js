@@ -186,6 +186,7 @@ router.post('/saveme', async (req, res) => {
   const {
     name,
     mainModelName,
+    createdAt,
     time
   } = req.body;
 
@@ -198,9 +199,9 @@ router.post('/saveme', async (req, res) => {
   const newTime = new Timebox({
     name,
     mainModelName,
+    createdAt,
     time
   });
-
   await newTime.save(err => {
     if (err)
       res.status(500);

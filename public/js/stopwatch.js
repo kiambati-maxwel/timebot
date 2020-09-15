@@ -77,6 +77,7 @@ const submdl_timer = {
       const send = {
         name: submdl_timer.subModuleName.innerText,
         mainModelName: submdl_timer.moduleLender.innerText,
+        createdAt: new Date(),
         time: totalTime
       };
       // console.log(send);
@@ -119,6 +120,7 @@ const submdl_timer = {
     const send = {
       name: submdl_timer.subModuleName.innerText,
       mainModelName: submdl_timer.moduleLender.innerText,
+      createdAt: new Date(),
       time: totalTime
     };
     localStorage.timeInit = JSON.stringify(send);
