@@ -16,7 +16,7 @@
     "babel-build-dev": "npx babel-node app/app.js",
     "prestart": "node lib/dev-start && npm run build && npm run pwa-build",
     "start": "npm run airbnb-lint && node server.js",
-    "predev-start": "npm run build",
+    "predev-start": "npm run build && npm run pwa-build",
     "dev-start": "node server.js",
     "lint": "esw --watch --color",
     "airbnb-lint": "eslint .",

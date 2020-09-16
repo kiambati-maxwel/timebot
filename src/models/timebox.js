@@ -9,19 +9,16 @@ const lnSchema = new Schema({
   },
   mainModelName: {
     type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    required: true
   },
   time: {
     type: Number,
     required: true
   }
-}, {
-  toJSON: {
-    virtuals: true
-  },
-  toObject: {
-    virtuals: true
-  },
-  timestamps: true,
 });
 
 const timeModel = mongoose.model('timebox', lnSchema);

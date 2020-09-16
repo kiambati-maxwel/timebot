@@ -57,8 +57,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       let aElement = document.createElement('a');
       aElement.innerHTML = `${e.name}`;
       model.appendChild(aElement);
-      model.classList = `model model-${e.id}`;
-      model.id = e.id;
+      model.classList = `model model-${e._id}`;
+      model.id = e._id;
       document.querySelector('#submodels').prepend(model);
 
       model.addEventListener('click', () => {
@@ -162,8 +162,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       ttd = null;
     });
 
-    console.log(subTopicTimetoday);
-    console.log(time_today_an);
+    // console.log(subTopicTimetoday);
+    // console.log(time_today_an);
     subTopicTimetoday.forEach(e => {
       let appendAnTime = document.createElement('li');
       appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;

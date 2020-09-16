@@ -120,6 +120,8 @@
         padding: 10px;
         z-index: 5;
         background: unset;
+        height: 80vh;
+        overflow: hidden;
     }
 
     #modelStats {
@@ -128,11 +130,10 @@
         overflow: auto;
         top: 2rem;
         right: 5%;
-        background-color: #212121;
+        background-color: #303030;
         border-radius: 10px;
         /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         top: 0;
-        border: solid 1px green;
     }
 
     #sub-model-stats {
@@ -140,13 +141,12 @@
         position: fixed;
         left: 7%;
         height: 50vh;
-        background-color: #212121;
+        background-color: #303030;
         /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
         margin-top: 7vh;
         z-index: 40;
         width: 40%;
         overflow: uset;
-        border: solid 1px green;
     }
 
     .stats-sec {
@@ -171,7 +171,9 @@
         margin-top: 60vh;
         margin-left: 44.3%;
     }
-
+    .show-stats-submodels:hover{
+        cursor: pointer;
+    }
     /* graph */
     .stats {
         width: 100%;
@@ -197,6 +199,7 @@
     }
 
     /* width */
+    #render-date-activity::-webkit-scrollbar,
     #sub-model-stats::-webkit-scrollbar,
     #modelStats::-webkit-scrollbar,
     .ln-models::-webkit-scrollbar {
@@ -205,6 +208,7 @@
     }
 
     /* Track */
+    #render-date-activity::-webkit-scrollbar-track,
     #sub-model-stats::-webkit-scrollbar-track,
     #modelStats::-webkit-scrollbar-track,
     .ln-models::-webkit-scrollbar-track {
@@ -214,6 +218,7 @@
     }
 
     /* Handle */
+    #render-date-activity::-webkit-scrollbar-thumb,
     #sub-model-stats::-webkit-scrollbar-thumb,
     #modelStats::-webkit-scrollbar-thumb,
     .ln-models::-webkit-scrollbar-thumb {
@@ -222,6 +227,7 @@
     }
 
     /* Handle on hover */
+    #render-date-activit::-webkit-scrollbar-thumb:hover,
     #sub-model-stats::-webkit-scrollbar-thumb:hover,
     #modelStat::-webkit-scrollbar-thumb:hover,
     .ln-models::-webkit-scrollbar-thumb:hover {
@@ -233,7 +239,8 @@
         position: fixed;
         z-index: 19;
         width: 45%;
-        top: 15vh;
+        top: 15vh;    /* background-color: #303030; */
+        /* color: wheat; */
         height: 60vh;
         right: 5%;
     }
@@ -274,5 +281,50 @@
     }
     #s-timer{
         display: unset;
+    }
+
+    #search-by-date-form{
+        position: absolute;
+        display: inline;
+        left: 31%;
+        z-index: 200;
+        top: 5px;
+    }
+    #render-date-activity{
+        position: absolute;
+        height: 50vh;
+        left: 7%;
+        width: 88%;
+        top: 4rem;
+        overflow: auto;
+        border-radius: 10px;
+        padding: 5px;
+        display: inline-block;
+        display: none;
+    }
+    #render-date-activity span{
+        display: inline;
+    }
+    #render-date-activity button{
+        position: fixed;
+        left: 84%;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background: rgb(85, 1, 1);
+        display: unset;
+        padding: 10px;
+        margin-bottom: 1rem;
+        color: white;
+        font-weight: 600;
+    }
+    #render-date-activity button:hover{
+        cursor: pointer;
+    }
+
+    .top-search-bar input{
+        width: 50%;
+        margin-left: 50%;
     }
 }

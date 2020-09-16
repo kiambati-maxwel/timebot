@@ -13,6 +13,7 @@ const submdl_timer = {
   moduleLender: document.querySelector('#moduleLender'),
   playpause: document.querySelector('.play-pause'),
   subModuleName: document.querySelector('#subModelNameTimer'),
+  // connection: navigator.connection || navigator.mozConnection || navigator.webkitConnection,
 
 
   // variables to hold time
@@ -70,17 +71,30 @@ const submdl_timer = {
 
   totalTimeSpent: async function () {
     const totalTime = submdl_timer.hours * 60 + submdl_timer.minutes + submdl_timer.seconds / 60;
-    console.log(totalTime);
+    // console.log(totalTime);
     if (submdl_timer.subModuleName.innerText === '') {
       alert('select submodule');
     } else {
       const send = {
         name: submdl_timer.subModuleName.innerText,
         mainModelName: submdl_timer.moduleLender.innerText,
+        createdAt: new Date(),
         time: totalTime
       };
-      console.log(send);
-      await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+      // console.log(send);
+      if (this.connection.online && this.connection.effectiveType !== 'slow-2g') {
+        console.log('i am online !!');
+        await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+      }else{
+        // if(localStorage.offlineData){
+        //   const data = JSON.parse(localStorage.offlineData);
+        //   data.push(send);
+        //   localStorage.offlineData = JSON.stringify(data);
+        // }else{
+        //   const data = [send];
+        //   localStorage.offlineData = JSON.stringify(data);
+        // }
+      }
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');
@@ -119,6 +133,7 @@ const submdl_timer = {
     const send = {
       name: submdl_timer.subModuleName.innerText,
       mainModelName: submdl_timer.moduleLender.innerText,
+      createdAt: new Date(),
       time: totalTime
     };
     localStorage.timeInit = JSON.stringify(send);
@@ -128,7 +143,7 @@ const submdl_timer = {
     if (localStorage.timeInit) {
       const send = JSON.parse(localStorage.timeInit);
       post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
-      console.log(send);
+      // console.log(send);
       localStorage.removeItem('timeInit');
     }
   }

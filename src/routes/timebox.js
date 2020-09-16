@@ -140,6 +140,7 @@ router.get('/sts', async (req, res) => {
 
 
     res.status(200).json({
+      allTime,
       totalTime,
       modelTime,
       totalTimeToday,
@@ -185,6 +186,7 @@ router.post('/saveme', async (req, res) => {
   const {
     name,
     mainModelName,
+    createdAt,
     time
   } = req.body;
 
@@ -197,13 +199,13 @@ router.post('/saveme', async (req, res) => {
   const newTime = new Timebox({
     name,
     mainModelName,
+    createdAt,
     time
   });
-
   await newTime.save(err => {
     if (err)
-      res.sendStatus(500);
-    res.sendStatus(201);
+      res.status(500);
+    res.status(201);
   });
 });
 

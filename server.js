@@ -37,7 +37,7 @@ function server_1() {
 
   global.clientConnection = _dbutils.default;
   global.appRoot = _path.default.resolve(__dirname); // serving static files
-  // in production this path .....
+  // in production chage this path .....
 
   app.use(_express.default.static(_path.default.join(__dirname, '/dist')));
   app.use('/jss', _express.default.static(_path.default.join(__dirname, '/node_modules/jquery/dist')));

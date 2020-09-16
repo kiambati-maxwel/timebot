@@ -3,9 +3,6 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const LnmodelsSchema = new Schema({
-  id: {
-    type: Number
-  },
   name: {
     type: String,
     required: true

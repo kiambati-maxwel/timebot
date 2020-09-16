@@ -3,9 +3,6 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const submdlSchema = new Schema({
-  id: {
-    type: Number
-  },
   mainMname: {
     type: String,
     // default: 'main module name'

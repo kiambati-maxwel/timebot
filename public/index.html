@@ -23,7 +23,6 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 	<link rel="manifest" href="/config/pwa.webmanifest">
-	<link rel="apple-touch-icon" href="/images/orange-main-512.png">
 	<link rel="stylesheet" href="/styles/reset.css">
 	<link rel="stylesheet" href="/styles/hamberger.css">
 	<link rel="stylesheet" href="/styles/loginform.css">
@@ -99,8 +98,16 @@
 	<!-- side navigation-->
 	<nav id="sidebarMenu">
 		<a><span class="logout-label">logout</span></a>
-
+		<form id="search-by-date-form">
+			<!-- <label for="search-by-date">typein the date</label> -->
+			<input type="date" name="search-by-date" id="search-by-date">
+			<input type="submit" value="find">
+		</form>
 		<div class="side-menu-container">
+
+			<section id="render-date-activity">
+
+			</section>
 
 			<section class="stats-sec">
 
@@ -118,11 +125,14 @@
 
 			</div>
 			<!-- stats interprated show btn -->
+
 			<button class="show-stats" onclick="clearElement(modelStats)">Statistics</button>
+
 			<footer>
-				<small>&copy; max 2020</small>
+				<small>&copy; max 2120</small>
 			</footer>
 		</div>
+
 	</nav>
 
 	<!-- main section -->
@@ -142,7 +152,7 @@
 
 			<form method="POST" id="add-model-form" class="add-visibility">
 
-				<input type="text" name="name" placeholder="enter name" id="modelnameinput" required>
+				<input type="text" name="name" placeholder="Enter model name" id="modelnameinput" required autofocus>
 
 				<input type="submit" value="submit">
 
