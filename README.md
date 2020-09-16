@@ -21,9 +21,9 @@ git clone [repo url]
  ```
 ### 2. open the cloned Folder in terminal
 
-### 3. checkout into date-search branch
+### 3. checkout into dev_env branch
 ``` 
-git checkout date-search
+git checkout dev_env
 
  ```
 ### 4. run 
