@@ -13,6 +13,7 @@ const submdl_timer = {
   moduleLender: document.querySelector('#moduleLender'),
   playpause: document.querySelector('.play-pause'),
   subModuleName: document.querySelector('#subModelNameTimer'),
+  // connection: navigator.connection || navigator.mozConnection || navigator.webkitConnection,
 
 
   // variables to hold time
@@ -81,7 +82,19 @@ const submdl_timer = {
         time: totalTime
       };
       // console.log(send);
-      await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+      if (this.connection.online && this.connection.effectiveType !== 'slow-2g') {
+        console.log('i am online !!');
+        await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+      }else{
+        // if(localStorage.offlineData){
+        //   const data = JSON.parse(localStorage.offlineData);
+        //   data.push(send);
+        //   localStorage.offlineData = JSON.stringify(data);
+        // }else{
+        //   const data = [send];
+        //   localStorage.offlineData = JSON.stringify(data);
+        // }
+      }
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');

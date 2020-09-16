@@ -3,6 +3,7 @@
 import express from 'express';
 import whichdb from '../../config/dbname';
 import Lnmodel from '../models/Lnmodels';
+import timebox from '../models/timebox';
 
 const router = express.Router();
 
@@ -49,7 +50,7 @@ router.post('/addmdl', async (req, res, next) => {
 
   await newModel.save()
     .then(() => {
-      console.log(`${name} modelCreated` );
+      console.log(`${name} modelCreated`);
       res.status(201).redirect('/');
     })
     .catch(err => {
@@ -66,7 +67,6 @@ router.delete('/delete/:name', async (req, res) => {
   });
 
   const lnmodel = await db.model("Lnmodel");
-  console.log(req.params.name);
   const nameToDelete = encodeURI(req.params.name);
   await lnmodel.deleteOne({
     name: nameToDelete
@@ -74,8 +74,17 @@ router.delete('/delete/:name', async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log('deleted !');
-      res.status(202).redirect('/');
+      const timeBox = db.model('timebox');
+      timeBox.deleteMany({
+        mainModelName: req.params.name
+      }, err => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('deleted !');
+          res.status(202).redirect('/');
+        }
+      });
     }
   });
 });

@@ -20,6 +20,17 @@ window.addEventListener('DOMContentLoaded', async () => {
       aElement.href = `/submodels/${m.name}?id=${localStorage.tenant_ID}`;
       aElement.innerHTML = `${decodeURI(m.name)}`;
       model.appendChild(aElement);
+      // const requests = document.createElement('datalist');
+      // const option = document.createElement('option');
+      // const option2 = document.createElement('option');
+      // option2.innerHTML = '';
+      // const optionAdress = document.createElement('a');
+      // optionAdress.href = `/lnmodels/delete/${decodeURI(m.name)}?id=${localStorage.tenant_ID}`;
+      // optionAdress.innerHTML = 'delete';
+      // option.appendChild(optionAdress);
+      // requests.appendChild(option2);
+      // requests.appendChild(option);
+      // model.appendChild(requests);
       model.classList = `model model-${m._id}`;
       document.querySelector('#lnmodels').prepend(model);
     });
