@@ -13,9 +13,7 @@ const submdl_timer = {
   moduleLender: document.querySelector('#moduleLender'),
   playpause: document.querySelector('.play-pause'),
   subModuleName: document.querySelector('#subModelNameTimer'),
-  // connection: navigator.connection || navigator.mozConnection || navigator.webkitConnection,
-
-
+  connection: navigator.connection || navigator.mozConnection || navigator.webkitConnection,
   // variables to hold time
   seconds: 0,
   minutes: 0,
@@ -31,6 +29,103 @@ const submdl_timer = {
   localInterval: null,
   status: 'stopped',
 
+  // index db save time
+  idbTimebox: async function (senddata) {
+    if (!window.navigator.onLine || this.connection.effectiveType === 'slow-2g') {
+      console.log('i am online !!');
+      await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, senddata);
+    } else {
+      const dbpromise = indexedDB.open('timeBot-test-indexdb', 3);
+      dbpromise.onerror = event => {
+        console.log(event);
+      }
+      // dbpromise.onupgradeneeded = (event) => {
+      //   const db = event.target.result;
+      //   db.createObjectStore("timebox", { autoIncrement: true });
+      // }
+
+      dbpromise.onsuccess = (event) => {
+        const db = event.target.result;
+        const transaction = db.transaction(["timebox"], "readwrite");
+        // Do something when all the data is added to the database.
+        transaction.oncomplete = function (event) {
+          console.log("All done!");
+        };
+
+        transaction.onerror = function (event) {
+          // Don't forget to handle errors!
+          throw (err => {
+            console.log(err);
+          })
+        };
+
+        const objectStore = transaction.objectStore("timebox");
+        const request = objectStore.add(senddata);
+        request.onsuccess = function (event) {
+          // event.target.result === customer.ssn;
+          console.log('added!!!');
+        };
+      }
+    }
+  },
+
+  // get by mainmodel name
+  idbGetByMainmodelName: function (mainModeln) {
+    let mydata = [];
+    const dbPromise = indexedDB.open('timeBot-test-indexdb', 2);
+    dbPromise.onsuccess = (event) => {
+      const db = event.target.result;
+      const objectStore = db.transaction("timebox").objectStore("timebox");
+      objectStore.openCursor().onsuccess = function (event) {
+        const cursor = event.target.result;
+        const mdldata = [];
+        if (cursor) {
+          if (cursor.value.mainModelName === mainModeln) {
+            const received = {
+              name: cursor.value.name,
+              mainModelName: cursor.value.mainModelName,
+              time: cursor.value.time
+            }
+            mdldata.push(received);
+          }
+          cursor.continue();
+        }
+        else {
+          console.log("No more entries!");
+        }
+        mydata = mdldata;
+      }
+    }
+  },
+
+  // get all records in index db
+  idbGetallTime: function () {
+    const dbpromise = indexedDB.open('timeBot-test-indexdb', 2);
+    dbpromise.onerror = event => {
+      console.error(event);
+    }
+    return dbpromise.onsuccess = (event) => {
+      const db = event.target.result;
+      const transaction = db.transaction(["timebox"], "readonly");
+      // Do something when all the data is added to the database.
+      transaction.oncomplete = function (event) {
+        console.log("All done!");
+      };
+
+      transaction.onerror = function (event) {
+        // Don't forget to handle errors!
+        throw (err => {
+          console.log(err);
+        })
+      };
+
+      const objectStore = transaction.objectStore("timebox");
+      return objectStore.getAll().onsuccess = function (event) {
+        event.target.result;
+      };
+    }
+
+  },
   // stop watch logic
   stopWatch: function () {
     submdl_timer.seconds += 1;
@@ -81,20 +176,12 @@ const submdl_timer = {
         createdAt: new Date(),
         time: totalTime
       };
-      // console.log(send);
-      if (this.connection.online && this.connection.effectiveType !== 'slow-2g') {
-        console.log('i am online !!');
-        await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
-      }else{
-        // if(localStorage.offlineData){
-        //   const data = JSON.parse(localStorage.offlineData);
-        //   data.push(send);
-        //   localStorage.offlineData = JSON.stringify(data);
-        // }else{
-        //   const data = [send];
-        //   localStorage.offlineData = JSON.stringify(data);
-        // }
-      }
+      console.log(send.createdAt);
+      // console.log(this.connection);
+      // console.log(window.navigator.onLine);
+      this.idbTimebox(send);
+      // this.idbGetallTime();
+      // this.idbGetByMainmodelName('GCP');
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');
@@ -142,8 +229,7 @@ const submdl_timer = {
   saveLcTime: function () {
     if (localStorage.timeInit) {
       const send = JSON.parse(localStorage.timeInit);
-      post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
-      // console.log(send);
+      this.idbTimebox(send);
       localStorage.removeItem('timeInit');
     }
   }

@@ -82,99 +82,101 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
-  // get and analyse time
-  await get_submodels_statistics().then(info => {
-    let d = null;
-    let t = null;
-    let tt = null;
-    let ttd = 0;
-    const subTopic = [];
-    const subTopicToday = []
-    const subTopicTime = [];
-    const subTopicTimetoday = [];
-    const time_today_an = [];
-
-    if (info[0] === undefined) {
-      totalTimeSpen.innerHTML = `total time :<span>0</span>`;
-    } else {
-      const dateToday = new Date();
-
-      info.forEach(e => {
-        t += e.time;
-        let dateN = new Date(e.createdAt);
-
-        if (subTopicTime.length < 1 || subTopic.includes(e.name) !== true) {
-          info.filter(info => {
-            /* filter subtopic name in info get request data */
-            return info.name === e.name;
-          }).map(sbn => {
-            return sbn.time; /* map time into an array */
-          }).forEach(e => {
-
-            tt += e;
-
-          });
-          subTopic.push(e.name);
-          subTopicTime.push({
-            name: e.name,
-            time: tt
-          });
-          tt = null;
-        }
-
-        if (dateToday.getDate() === dateN.getDate() &&
-          dateToday.getFullYear() === dateN.getFullYear() &&
-          dateToday.getMonth() === dateN.getMonth()) {
-          d += e.time;
-          time_today_an.push({
-            name: e.name,
-            time: e.time
-          });
-        } else {
-          d = 0;
-        }
-      });
-    }
-
-    subTopicTime.forEach(e => {
-      let appendAnTime = document.createElement('li');
-      appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
-      totalTanlysed.prepend(appendAnTime);
-    });
-
-    // populate time for each submodel today
-    time_today_an.forEach(info => {
-      if (subTopicTimetoday.length < 1 || subTopicToday.includes(info.name) === false) {
-        time_today_an.filter(data => {
-          /* filter subtopic name in info get request data */
-          return info.name === data.name;
-        }).map(sbn => {
-          return sbn.time /* map time into an array */
-        }).forEach(e => {
-          ttd += e;
-        });
-        subTopicToday.push(info.name);
-        subTopicTimetoday.push({
-          name: info.name,
-          time: ttd
-        });
-      }
-      ttd = null;
-    });
-
-    // console.log(subTopicTimetoday);
-    // console.log(time_today_an);
-    subTopicTimetoday.forEach(e => {
-      let appendAnTime = document.createElement('li');
-      appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
-      analysedToday.prepend(appendAnTime);
-    });
-
-    totalTimeSpen.innerHTML = `Total : <span> ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min </span>`;
-    tTimeToday.innerHTML = `Today : <span> ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min </span>`;
-  });
+  await get_submodels_statistics(timeAnlysis);
 });
 
+
+function timeAnlysis(info) {
+  // get and analyse time
+  let d = null;
+  let t = null;
+  let tt = null;
+  let ttd = 0;
+  const subTopic = [];
+  const subTopicToday = []
+  const subTopicTime = [];
+  const subTopicTimetoday = [];
+  const time_today_an = [];
+
+  if (info[0] === undefined) {
+    totalTimeSpen.innerHTML = `total time :<span>0</span>`;
+  } else {
+    const dateToday = new Date();
+
+    info.forEach(e => {
+      t += e.time;
+      let dateN = new Date(e.createdAt);
+
+      if (subTopicTime.length < 1 || subTopic.includes(e.name) !== true) {
+        info.filter(info => {
+          /* filter subtopic name in info get request data */
+          return info.name === e.name;
+        }).map(sbn => {
+          return sbn.time; /* map time into an array */
+        }).forEach(e => {
+
+          tt += e;
+
+        });
+        subTopic.push(e.name);
+        subTopicTime.push({
+          name: e.name,
+          time: tt
+        });
+        tt = null;
+      }
+
+      if (dateToday.getDate() === dateN.getDate() &&
+        dateToday.getFullYear() === dateN.getFullYear() &&
+        dateToday.getMonth() === dateN.getMonth()) {
+        d += e.time;
+        time_today_an.push({
+          name: e.name,
+          time: e.time
+        });
+      } else {
+        d = 0;
+      }
+    });
+  }
+
+  subTopicTime.forEach(e => {
+    let appendAnTime = document.createElement('li');
+    appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
+    totalTanlysed.prepend(appendAnTime);
+  });
+
+  // populate time for each submodel today
+  time_today_an.forEach(info => {
+    if (subTopicTimetoday.length < 1 || subTopicToday.includes(info.name) === false) {
+      time_today_an.filter(data => {
+        /* filter subtopic name in info get request data */
+        return info.name === data.name;
+      }).map(sbn => {
+        return sbn.time /* map time into an array */
+      }).forEach(e => {
+        ttd += e;
+      });
+      subTopicToday.push(info.name);
+      subTopicTimetoday.push({
+        name: info.name,
+        time: ttd
+      });
+    }
+    ttd = null;
+  });
+
+  // console.log(subTopicTimetoday);
+  // console.log(time_today_an);
+  subTopicTimetoday.forEach(e => {
+    let appendAnTime = document.createElement('li');
+    appendAnTime.innerHTML = `${e.name} : <span> ${Math.trunc(e.time / 60)} hr ${Math.trunc(e.time % 60)} min </span>`;
+    analysedToday.prepend(appendAnTime);
+  });
+
+  totalTimeSpen.innerHTML = `Total : <span> ${Math.trunc(t / 60)} hr ${Math.trunc(t % 60)} min </span>`;
+  tTimeToday.innerHTML = `Today : <span> ${Math.trunc(d / 60)} hr ${Math.trunc(d % 60)} min </span>`;
+}
 // timer section lender
 function add_timer() {
   if (clearTimer.className === 'add-visibility') {
@@ -183,3 +185,9 @@ function add_timer() {
     clearTimer.classList.add('add-visibility');
   }
 }
+
+
+
+
+
+
