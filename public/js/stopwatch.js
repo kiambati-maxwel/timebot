@@ -82,10 +82,10 @@ const submdl_timer = {
         time: totalTime
       };
       // console.log(send);
-      if (this.connection.online && this.connection.effectiveType !== 'slow-2g') {
-        console.log('i am online !!');
+      // if (this.connection.online && this.connection.effectiveType !== 'slow-2g') {
+        // console.log('i am online !!');
         await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
-      }else{
+      // }else{
         // if(localStorage.offlineData){
         //   const data = JSON.parse(localStorage.offlineData);
         //   data.push(send);
@@ -94,7 +94,7 @@ const submdl_timer = {
         //   const data = [send];
         //   localStorage.offlineData = JSON.stringify(data);
         // }
-      }
+      // }
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');
