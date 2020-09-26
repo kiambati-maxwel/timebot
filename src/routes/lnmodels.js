@@ -4,6 +4,7 @@ import express from 'express';
 import whichdb from '../../config/dbname';
 import Lnmodel from '../models/Lnmodels';
 import timebox from '../models/timebox';
+import submodel from '../models/submodels'
 
 const router = express.Router();
 
@@ -81,8 +82,17 @@ router.delete('/delete/:name', async (req, res) => {
         if (err) {
           console.log(err);
         } else {
-          console.log('deleted !');
-          res.status(202).redirect('/');
+          const Submodels = db.model('submodels');
+          Submodels.deleteMany({
+            mainMname: req.params.name
+          }, err => {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log('deleted !');
+              res.status(202).redirect('/');
+            }
+          })
         }
       });
     }
