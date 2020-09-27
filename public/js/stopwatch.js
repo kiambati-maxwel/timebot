@@ -31,11 +31,19 @@ const submdl_timer = {
   status: 'stopped',
   start: null,
   pauseCheck: false,
+  timeAfterPause: 0,
+  dateOnPause: 0,
 
   // stop watch logic
   stopWatch: function () {
     // milliseconds elapsed since start
-    let delta = Date.now() - submdl_timer.start;
+    let delta = 0;
+    if (submdl_timer.timeAfterPause !== 0) {
+      delta = (Date.now() - submdl_timer.start) - submdl_timer.timeAfterPause
+    } else {
+      delta = Date.now() - submdl_timer.start;
+    }
+
     submdl_timer.seconds = Math.floor(delta / 1000) % 60;
     submdl_timer.minutes = Math.floor(delta / 60000) % 60;
     submdl_timer.hours = Math.floor(delta / 3600000);
@@ -83,6 +91,8 @@ const submdl_timer = {
       // start stop watch interval
       if (submdl_timer.pauseCheck === false) {
         submdl_timer.start = Date.now();
+      } else if (submdl_timer.dateOnPause !== 0) {
+        submdl_timer.timeAfterPause += Date.now() - submdl_timer.dateOnPause;
       }
       submdl_timer.interval = window.setInterval(submdl_timer.stopWatch, 1000.7);
       submdl_timer.localInterval = window.setInterval(submdl_timer.updateLoacalStorage, 5000);
@@ -90,6 +100,7 @@ const submdl_timer = {
     } else {
       window.clearInterval(submdl_timer.interval);
       submdl_timer.pauseCheck = true;
+      submdl_timer.dateOnPause = Date.now();
       submdl_timer.status = 'stopped';
       window.clearInterval(submdl_timer.localInterval);
       localStorage.removeItem('timeInit');
@@ -104,6 +115,8 @@ const submdl_timer = {
     submdl_timer.seconds = 0;
     submdl_timer.minutes = 0;
     submdl_timer.hours = 0;
+    submdl_timer.dateOnPause = 0;
+    submdl_timer.timeAfterPause = 0;
     submdl_timer.pauseCheck = false;
     submdl_timer.timeDisplay.innerHTML = '00 : 00 : 00';
     submdl_timer.playPauseCheckbox.checked = true;
