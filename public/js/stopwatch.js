@@ -5,7 +5,6 @@ import {
 
 // timer object
 const submdl_timer = {
-
   // dom
   timeDisplay: document.querySelector('#time-display'),
   playPauseCheckbox: document.querySelector('#playPauseCheckbox'),
@@ -33,6 +32,7 @@ const submdl_timer = {
   pauseCheck: false,
   timeAfterPause: 0,
   dateOnPause: 0,
+  totalTime: 0,
 
   // stop watch logic
   stopWatch: function () {
@@ -44,6 +44,7 @@ const submdl_timer = {
       delta = Date.now() - submdl_timer.start;
     }
 
+    submdl_timer.totalTime = delta;
     submdl_timer.seconds = Math.floor(delta / 1000) % 60;
     submdl_timer.minutes = Math.floor(delta / 60000) % 60;
     submdl_timer.hours = Math.floor(delta / 3600000);
@@ -71,7 +72,7 @@ const submdl_timer = {
 
   // save toTal time in minutes
   totalTimeSpent: async function () {
-    const totalTime = (Date.now() - submdl_timer.start) / 60000;
+    const totalTime = submdl_timer.totalTime / 60000;
     if (submdl_timer.subModuleName.innerText === '') {
       alert('select submodule');
     } else {
@@ -118,6 +119,7 @@ const submdl_timer = {
     submdl_timer.dateOnPause = 0;
     submdl_timer.timeAfterPause = 0;
     submdl_timer.pauseCheck = false;
+    submdl_timer.totalTime = 0;
     submdl_timer.timeDisplay.innerHTML = '00 : 00 : 00';
     submdl_timer.playPauseCheckbox.checked = true;
 
@@ -127,7 +129,7 @@ const submdl_timer = {
   },
 
   updateLoacalStorage: async function () {
-    const totalTime = (Date.now() - submdl_timer.start) / 60000;
+    const totalTime = submdl_timer.totalTime / 60000;
     const send = {
       name: submdl_timer.subModuleName.innerText,
       mainModelName: submdl_timer.moduleLender.innerText,
