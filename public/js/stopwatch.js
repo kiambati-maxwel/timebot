@@ -86,6 +86,7 @@ const submdl_timer = {
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');
+    location.reload();
   },
   startStop: function () {
     if (submdl_timer.status === 'stopped') {

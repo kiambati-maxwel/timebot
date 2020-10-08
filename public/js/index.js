@@ -227,3 +227,12 @@ function logout() {
 }
 
 logout();
+
+function getInput() {
+  const input = document.querySelector('.show-s-bar');
+  input.addEventListener('click', () => {
+    document.getElementById('search-model').focus();
+    console.log('fucused');
+  });
+}
+getInput();
