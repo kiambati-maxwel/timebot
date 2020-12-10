@@ -3,8 +3,8 @@
 timeBot is an agile time management app, gives an anlysis of time 
 spent in learning.
 
-## Demo
-
+## Usage Demo
+![Showcase](demo/demo.gif)
 
 ## Prerequisites
 * nodejs version 14 or later *Latest stable release
@@ -78,4 +78,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Master branch is empty,  marge request to this branch from dev_env branch will be done during deployment. All contributions should be done from dev_env branch.
 
-LICENCE [MIT](https://www.google.com "Google's Homepage")
+LICENCE [MIT](LICENCE)
