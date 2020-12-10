@@ -5,19 +5,14 @@ spent in learning.
 
 ## Demo
 
-<!-- <video width="100%" height="240" controls>
-  <source src="https://youtu.be/7g1ncWsqpeQ" type="video/mp4">
-Your browser does not support the video tag.
-</video> -->
 
-<iframe width="1280" height="720" autoplay src="https://youtu.be/7g1ncWsqpeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 ## Prerequisites
 * nodejs version 14 or later *Latest stable release
 * git 
 * Browser preferably chrome
 * Mongodb 
    - install mongodb community version.
-   - follow installation instructions for your OS here <a href="https://docs.mongodb.com/manual/administration/install-community/">mongodb installation docs</a>
+   - follow installation instructions for your OS here [mongodb installation docs](https://docs.mongodb.com/manual/administration/install-community/)</a>
    - on windows , after downloading and installing the setup, cd to `C:\program files\mongoDB\bin` and click `mongod` to start mongo db
   
       
@@ -82,3 +77,5 @@ to start the server ` you need internet connection when you first start the serv
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
 
 Master branch is empty,  marge request to this branch from dev_env branch will be done during deployment. All contributions should be done from dev_env branch.
+
+LICENCE [MIT](https://www.google.com "Google's Homepage")
