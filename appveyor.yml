@@ -1,0 +1,25 @@
+#  test against this version of nodejs
+environment:
+    matrix:
+
+    #  node.js
+    - nodejs_version: "14"
+
+# install scripts (runns after cloning)
+install:
+
+   - ps: Install-Product node $env:nodejs_version
+
+   # install module
+   - npm install
+
+# post-install test scripts
+test_script:
+  # ouput usful info for debugging
+    - node --version
+    - npm --version
+  # run tests
+    - npm test
+
+  # dont actually build
+build: false
