@@ -7,8 +7,8 @@ spent in learning.
 ![Showcase](demo/demo.gif)
 
 ## Prerequisites
-* nodejs version 14 or later *Latest stable release
-* git 
+* [git](https://git-scm.com/)
+* [node](https://nodejs.org/en/)
 * Browser preferably chrome
 * Mongodb 
    - install mongodb community version.
@@ -24,18 +24,13 @@ git clone [repo url]
  ```
 ### 2. open the cloned Folder in terminal
 
-### 3. checkout into dev_env branch
-``` 
-git checkout dev_env
-
- ```
-### 4. run 
+### 3. run 
  ```
  npm i 
  ```
-  to install all nodejs depedencies 
+  To install all nodejs depedencies 
 
-### 5. run 
+### 4. run 
 ``` 
 npm i bcryptjs core-js 
 
@@ -74,8 +69,6 @@ to start the server ` you need internet connection when you first start the serv
 * To add application as a PWA click the + icon that apears on the right side of chromes search bar.
 
 ## Contributions
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
-
-Master branch is empty,  marge request to this branch from dev_env branch will be done during deployment. All contributions should be done from dev_env branch.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 LICENCE [MIT](LICENSE)
