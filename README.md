@@ -5,12 +5,12 @@ spent in learning.
 
 ## Demo
 
-<video width="100%" height="240" controls>
+<!-- <video width="100%" height="240" controls>
   <source src="https://youtu.be/7g1ncWsqpeQ" type="video/mp4">
 Your browser does not support the video tag.
-</video>
+</video> -->
 
-<!-- <iframe width="1280" height="720" autoplay src="https://youtu.be/7g1ncWsqpeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<iframe width="1280" height="720" autoplay src="https://youtu.be/7g1ncWsqpeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 ## Prerequisites
 * nodejs version 14 or later *Latest stable release
 * git 
