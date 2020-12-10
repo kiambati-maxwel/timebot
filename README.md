@@ -78,4 +78,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Master branch is empty,  marge request to this branch from dev_env branch will be done during deployment. All contributions should be done from dev_env branch.
 
-LICENCE [MIT](LICENCE)
+
+LICENCE [MIT](LICENSE)
+
