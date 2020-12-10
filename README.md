@@ -77,3 +77,8 @@ to start the server ` you need internet connection when you first start the serv
 
 ## PWA
 * To add application as a PWA click the + icon that apears on the right side of chromes search bar.
+
+## Contributions
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
+
+Master branch is empty,  marge request to this branch from dev_env branch will be done during deployment. All contributions should be done from dev_env branch.
