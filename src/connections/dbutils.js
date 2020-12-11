@@ -15,7 +15,7 @@ async function initClientDbConnection() {
   const db = mongoose.createConnection(dbconfig.mongoURL, clientOption);
   db.on("error", console.error.bind(console, "MongoDB Connection Error>> : "));
   await db.once("open", () => {
-    console.log("client MongoDB Connection ok!");
+    console.log("MongoDB is UP 😎");
   });
   require("../models/User.js");
   return db;

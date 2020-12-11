@@ -14,6 +14,7 @@ const submdl_timer = {
   playpause: document.querySelector('.play-pause'),
   subModuleName: document.querySelector('#subModelNameTimer'),
   connection: navigator.connection || navigator.mozConnection || navigator.webkitConnection,
+
   // variables to hold time
   seconds: 0,
   minutes: 0,
@@ -28,6 +29,11 @@ const submdl_timer = {
   interval: null,
   localInterval: null,
   status: 'stopped',
+  start: null,
+  pauseCheck: false,
+  timeAfterPause: 0,
+  dateOnPause: 0,
+  totalTime: 0,
 
   // index db save time
   idbTimebox: async function (senddata) {
@@ -128,45 +134,43 @@ const submdl_timer = {
   },
   // stop watch logic
   stopWatch: function () {
-    submdl_timer.seconds += 1;
-
-    // logic is determines when increament next value
-
-    if (submdl_timer.seconds / 60 === 1) {
-      submdl_timer.seconds = 0;
-      submdl_timer.minutes += 1;
-      if (submdl_timer.minutes / 60 === 1) {
-        submdl_timer.minutes = 0;
-        submdl_timer.hours += 1;
-      }
+    // milliseconds elapsed since start
+    let delta = 0;
+    if (submdl_timer.timeAfterPause !== 0) {
+      delta = (Date.now() - submdl_timer.start) - submdl_timer.timeAfterPause
+    } else {
+      delta = Date.now() - submdl_timer.start;
     }
 
-    // submdl_timer.seconds++/hours/minutes dispaly
-    if (submdl_timer.displaySecs < 10) {
+    submdl_timer.totalTime = delta;
+    submdl_timer.seconds = Math.floor(delta / 1000) % 60;
+    submdl_timer.minutes = Math.floor(delta / 60000) % 60;
+    submdl_timer.hours = Math.floor(delta / 3600000);
+
+    // display an extra zeroDirectives &
+    if (submdl_timer.seconds < 10) {
       submdl_timer.displaySecs = `0${submdl_timer.seconds.toString()}`;
     } else {
       submdl_timer.displaySecs = submdl_timer.seconds;
     }
-    if (submdl_timer.displayMins < 10) {
+    if (submdl_timer.minutes < 10) {
       submdl_timer.displayMins = `0${submdl_timer.minutes.toString()}`;
     } else {
       submdl_timer.displayMins = submdl_timer.minutes;
     }
-    if (submdl_timer.displayHours < 10) {
+    if (submdl_timer.hours < 10) {
       submdl_timer.displayHours = `0${submdl_timer.hours.toString()}`;
     } else {
       submdl_timer.displayHours = submdl_timer.hours;
     }
 
     // display updates time
-
     submdl_timer.timeDisplay.innerHTML = `${submdl_timer.displayHours} : ${submdl_timer.displayMins} :   ${submdl_timer.displaySecs}`;
   },
-  // total time
 
+  // save toTal time in minutes
   totalTimeSpent: async function () {
-    const totalTime = submdl_timer.hours * 60 + submdl_timer.minutes + submdl_timer.seconds / 60;
-    // console.log(totalTime);
+    const totalTime = submdl_timer.totalTime / 60000;
     if (submdl_timer.subModuleName.innerText === '') {
       alert('select submodule');
     } else {
@@ -182,18 +186,28 @@ const submdl_timer = {
       this.idbTimebox(send);
       // this.idbGetallTime();
       // this.idbGetByMainmodelName('GCP');
+      await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');
+    location.reload();
   },
   startStop: function () {
     if (submdl_timer.status === 'stopped') {
       // start stop watch interval
+      if (submdl_timer.pauseCheck === false) {
+        submdl_timer.start = Date.now();
+      } else if (submdl_timer.dateOnPause !== 0) {
+        submdl_timer.timeAfterPause += Date.now() - submdl_timer.dateOnPause;
+      }
       submdl_timer.interval = window.setInterval(submdl_timer.stopWatch, 1000.7);
       submdl_timer.localInterval = window.setInterval(submdl_timer.updateLoacalStorage, 5000);
       submdl_timer.status = 'started';
     } else {
       window.clearInterval(submdl_timer.interval);
+      submdl_timer.pauseCheck = true;
+      submdl_timer.dateOnPause = Date.now();
       submdl_timer.status = 'stopped';
       window.clearInterval(submdl_timer.localInterval);
       localStorage.removeItem('timeInit');
@@ -204,9 +218,14 @@ const submdl_timer = {
     window.clearInterval(submdl_timer.interval);
     window.clearInterval(submdl_timer.localInterval);
     localStorage.removeItem('timeInit');
+    submdl_timer.start = null;
     submdl_timer.seconds = 0;
     submdl_timer.minutes = 0;
     submdl_timer.hours = 0;
+    submdl_timer.dateOnPause = 0;
+    submdl_timer.timeAfterPause = 0;
+    submdl_timer.pauseCheck = false;
+    submdl_timer.totalTime = 0;
     submdl_timer.timeDisplay.innerHTML = '00 : 00 : 00';
     submdl_timer.playPauseCheckbox.checked = true;
 
@@ -216,7 +235,7 @@ const submdl_timer = {
   },
 
   updateLoacalStorage: async function () {
-    const totalTime = submdl_timer.hours * 60 + submdl_timer.minutes + submdl_timer.seconds / 60;
+    const totalTime = submdl_timer.totalTime / 60000;
     const send = {
       name: submdl_timer.subModuleName.innerText,
       mainModelName: submdl_timer.moduleLender.innerText,
@@ -226,10 +245,12 @@ const submdl_timer = {
     localStorage.timeInit = JSON.stringify(send);
   },
 
+  // save to local storage incase one closes the window accidentally
   saveLcTime: function () {
     if (localStorage.timeInit) {
       const send = JSON.parse(localStorage.timeInit);
       this.idbTimebox(send);
+      post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
       localStorage.removeItem('timeInit');
     }
   }
