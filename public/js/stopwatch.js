@@ -82,7 +82,12 @@ const submdl_timer = {
         createdAt: new Date(),
         time: totalTime
       };
-      await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+      if(!navigator.onLine){
+        localStorage.offline = JSON.stringify(send);
+        window.confirm('save offline');
+      }else{
+        await post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
+      }
     }
     submdl_timer.reset();
     localStorage.removeItem('timeInit');
@@ -142,10 +147,13 @@ const submdl_timer = {
 
   // save to local storage incase one closes the window accidentally
   saveLcTime: function () {
-    if (localStorage.timeInit) {
+    if (localStorage.timeInit && navigator.onLine) {
       const send = JSON.parse(localStorage.timeInit);
+      const offline = JSON.parse(localStorage.offline);
       post(`/timebox/saveme?id=${localStorage.tenant_ID}`, send);
       localStorage.removeItem('timeInit');
+      post(`/timebox/saveme?id=${localStorage.tenant_ID}`, offline);
+      localStorage.removeItem('offline');
     }
   }
 };
