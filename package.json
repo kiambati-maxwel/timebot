@@ -18,7 +18,7 @@
     "copy": "copyfiles -u 1 public/**/**/* public/**/* public/* dist",
     "babel-build-dev": "npx babel-node app/app.js",
     "pretart": "node lib/dev-start && npm run build && npm run pwa-build",
-    "start": "npm run dev-start",
+    "start": "npm run build && run dev-start",
     "tart": "npm run airbnb-lint && node server.js",
     "predev-start": "npm run build && npm run pwa-build",
     "dev-start": "node server.js",
