@@ -3,6 +3,6 @@
 *.swo
 *.swp
 node_modules
-# dist
-# lib
+dist
+lib
 keys
