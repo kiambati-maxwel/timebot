@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#000000" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>timeBot</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"
+		href="/images/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+	<link rel="manifest" href="/config/pwa.webmanifest">
+	<link rel="stylesheet" href="/styles/reset.css">
+	<link rel="stylesheet" href="/styles/hamberger.css">
+	<link rel="stylesheet" href="/styles/loginform.css">
+	<link rel="stylesheet" href="/styles/index.css">
+	<link rel="stylesheet" href="/styles/add-mdl-form.css">
+	<link rel="stylesheet" href="/styles/model.css">
+	<link rel="stylesheet" href="/styles/mediaquery.css">
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<figure class="logo">
+			<a href="/"><img src="/images/orange-cyan-icon.svg" alt="timebot"></a>
+		</figure>
+	</header>
+	<div id="login" class="add-visibility">
+		<form action="/user/login" method="POST">
+			<h2>login</h2>
+			<input type="email" name="email" placeholder="Enter email adress" id="myemail"
+				autofocus>
+			<br>
+			<input type="password" name="password" id="mypassword"
+				placeholder="Enter password">
+			<br>
+			<input type="submit" class="submit" value="submit" name="submit">
+			<p>dont have an account ? -- <span class="if-no-account">sign up</span>
+			</p>
+		</form>
+	</div>
+
+	<div class="add-visibility" id="register">
+
+		<form class="my-form " action="/user/register" method="POST">
+			<h2>Sign Up</h2>
+
+			<input id="form-name" type="text" name="name" class="input-form"
+				placeholder="Name ..." required autofocus>
+
+			<input id="form-email" type="email" name="email" class="input-form"
+				placeholder="Email ..." required>
+
+			<input id="form-password" type="password" name="password" class="input-form"
+				placeholder="Password..." required>
+
+			<input id="form-password2" type="password" name="password2" class="input-form"
+				placeholder="Confirm password ..." required>
+
+			<br>
+			<input class="btn-form" type="submit" value="submit" name=""
+				class="input-form">
+
+			<p class="if-account">have an account ? -- <span></span><a href="/">
+					login</a></span></p>
+		</form>
+
+	</div>
+
+
+	<!-- searchbar icon -->
+	<input type="checkbox" id="show-search-bar" autofocus>
+	<label for="show-search-bar" class="show-s-bar" id="search-icon">
+		<img src="/images/search-white-36dp.svg" alt="<>">
+	</label>
+
+	<!-- close searchbar icon -->
+	<label class="close-search-bar" for="show-search-bar"> <img
+			src="/images/clear-black-36dp.svg" alt="clear"></label>
+	<form novalidate class="top-search-bar" id="search-bar">
+		<input type="text" id="search-model" class="form-control" placeholder="search" />
+	</form>
+
+	<!-- hamburger side bar control -->
+	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+	<label for="openSidebarMenu" class="sidebarIconToggle">
+		<div class="spinner diagonal part-1"></div>
+		<div class="spinner horizontal"></div>
+		<div class="spinner diagonal part-2"></div>
+	</label>
+
+	<!-- side navigation-->
+	<nav id="sidebarMenu">
+		<a><span class="logout-label">logout</span></a>
+		<form id="search-by-date-form">
+			<!-- <label for="search-by-date">typein the date</label> -->
+			<input type="date" name="search-by-date" id="search-by-date">
+			<input type="submit" value="find">
+		</form>
+		<div class="side-menu-container">
+
+			<section id="render-date-activity">
+
+			</section>
+
+			<section class="stats-sec">
+
+				<!-- graph canvas -->
+				<div class="stats">
+					<canvas id="myChart" width="100%"></canvas>
+				</div>
+
+			</section>
+
+			<!-- stats interprated section -->
+			<div id="modelStats" class="add-visibility">
+
+				<!-- populate model stats -->
+
+			</div>
+			<!-- stats interprated show btn -->
+
+			<button class="show-stats"
+				onclick="clearElement(modelStats)">Statistics</button>
+
+			<footer>
+				<small>&copy; max 2120</small>
+			</footer>
+		</div>
+
+	</nav>
+
+	<!-- main section -->
+
+	<main class="group">
+		<section class="container-dashboard ">
+			<!-- learning models sections -->
+			<section class="ln-models" id="lnmodels">
+
+
+				<h1 class="model model-4 is-visible" style="visibility: hidden;">
+					<a href="">e</a>
+				</h1>
+			</section>
+
+			<!-- add ln models form -->
+
+			<form method="POST" id="add-model-form" class="add-visibility">
+
+				<input type="text" name="name" placeholder="Enter model name"
+					id="modelnameinput" required autofocus>
+
+				<input type="submit" value="submit">
+
+			</form>
+
+			<button id="add-mdl" onclick="clearElement(addForm)">+</button>
+
+	</main>
+
+	<script src="/jss/Chart.min.js"></script>
+	<script src="/js/index.js" type="module"></script>
+	<script src="/js/addform.js"></script>
+	<script src="/js/pwa.js"></script>
+
+</body>
+
+</html>

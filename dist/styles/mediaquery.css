@@ -1,0 +1,330 @@
+/* main media query  */
+@media screen and (min-width:830px) {
+
+    /* --- main reset css3 --- */
+    #submodel-form,
+    #add-model-form {
+        width: 25%;
+        margin-left: 13%;
+        margin-top: 19vh;
+    }
+
+    #register form,
+    #login form {
+        width: 60%;
+    }
+
+    .app-view {
+        width: 70%;
+    }
+
+    .register-form,
+    .login-form {
+        width: 60%;
+    }
+
+    .container-dashboard {
+        width: 30%;
+        float: left;
+        height: 65vh;
+        margin-left: 15%;
+        margin-top: 3rem;
+    }
+
+    #submodels, #lnmodels {
+        position: unset;
+        border-radius: 20px;
+        height: 65vh;
+        float: left;
+        position: relative;
+        padding: 5px;
+        overflow: auto;
+        margin-top: 3vh;
+    }
+
+
+    .model {
+        height: unset;
+        padding: 10px;
+        width: 60%;
+    }
+
+    /* transitions */
+
+    .model.is-visible {
+        margin-left: 40%;
+    }
+
+    .model.is-visible:first-child {
+        margin-left: 5%;
+    }
+
+    .model.is-visible:nth-child(2) {
+        margin-left: 13%;
+    }
+
+    .model.is-visible:nth-child(3n) {
+        margin-left: 26%;
+    }
+
+    .model.is-visible:nth-child(4) {
+        margin-left: 13%;
+
+    }
+
+    .model.is-visible:nth-child(5) {
+        margin-left: 10%;
+
+    }
+
+    .model.is-visible:nth-child(6) {
+        /* margin-left: 60%; */
+        margin-right: 10%;
+    }
+
+    .model.is-visible:nth-child(7) {
+        margin-left: 40%;
+        margin-right: 20%;
+
+    }
+
+    .model.is-visible:nth-child(8) {
+        margin-left: 30%;
+
+    }
+
+    .model.is-visible:nth-child(9) {
+        margin-left: 20%;
+    }
+
+    .model.is-visible::-webkit-scrollbar {
+        animation-play-state: paused;
+    }
+
+    #add-submodel,
+    #add-mdl {
+        right: unset;
+        left: 9%;
+        /* top: 47vh; */
+        top: 18.5rem
+    }
+
+    #sidebarMenu {
+        position: unset;
+        transform: unset;
+        width: 47%;
+        position: absolute;
+        height: 70vh;
+        top: 6rem;
+        right: 5%;
+        padding: 10px;
+        z-index: 5;
+        background: unset;
+        height: 80vh;
+        overflow: hidden;
+    }
+
+    #modelStats {
+        position: absolute;
+        height: 50vh;
+        overflow: auto;
+        top: 2rem;
+        right: 5%;
+        background-color: #303030;
+        border-radius: 10px;
+        /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
+        top: 0;
+    }
+
+    #sub-model-stats {
+        border-radius: 10px;
+        position: fixed;
+        left: 7%;
+        height: 50vh;
+        background-color: #303030;
+        /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
+        margin-top: 7vh;
+        z-index: 40;
+        width: 40%;
+        overflow: uset;
+    }
+
+    .stats-sec {
+        background-color: unset;
+    }
+
+    .show-stats {
+        display: unset;
+        margin-top: 20vh;
+        margin-left: 42%;
+        padding: 5px;
+        width: 7rem;
+        font-size: 1.4rem;
+        border-radius: 20px;
+        border: none;
+        /* background: linear-gradient(#75c8d3 0%, #88DFEA 100%); */
+        color: black;
+        cursor: poipointernter;
+    }
+
+    .show-stats-submodels {
+        margin-top: 60vh;
+        margin-left: 44.3%;
+    }
+    .show-stats-submodels:hover{
+        cursor: pointer;
+    }
+    /* graph */
+    .stats {
+        width: 100%;
+        padding-top: 8vh;
+    }
+
+    #sidebarMenu>a {
+        display: none;
+    }
+
+    #sidebarMenu footer {
+        display: none;
+    }
+
+    .sidebarIconToggle {
+        display: none;
+    }
+
+    /* scroll-behaviour */
+    html {
+        scroll-behavior: smooth;
+
+    }
+
+    /* width */
+    #render-date-activity::-webkit-scrollbar,
+    #sub-model-stats::-webkit-scrollbar,
+    #modelStats::-webkit-scrollbar,
+    .ln-models::-webkit-scrollbar {
+        width: 10px;
+
+    }
+
+    /* Track */
+    #render-date-activity::-webkit-scrollbar-track,
+    #sub-model-stats::-webkit-scrollbar-track,
+    #modelStats::-webkit-scrollbar-track,
+    .ln-models::-webkit-scrollbar-track {
+        background: #438088;
+
+        /* box-shadow: inset 0 0 5px #5F93C0; */
+    }
+
+    /* Handle */
+    #render-date-activity::-webkit-scrollbar-thumb,
+    #sub-model-stats::-webkit-scrollbar-thumb,
+    #modelStats::-webkit-scrollbar-thumb,
+    .ln-models::-webkit-scrollbar-thumb {
+        background: #000000;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    #render-date-activit::-webkit-scrollbar-thumb:hover,
+    #sub-model-stats::-webkit-scrollbar-thumb:hover,
+    #modelStat::-webkit-scrollbar-thumb:hover,
+    .ln-models::-webkit-scrollbar-thumb:hover {
+        background: rgb(5, 4, 4);
+    }
+
+
+    .sub-stats-sec {
+        position: fixed;
+        z-index: 19;
+        width: 45%;
+        top: 15vh;    /* background-color: #303030; */
+        /* color: wheat; */
+        height: 60vh;
+        right: 5%;
+    }
+    #sub-container-dashboard{
+        padding-top: unset;
+    }
+
+    .sub-timer h1 {
+        margin-top: 15%;
+    }
+
+    #clear-timer-btn {
+        display: none;
+    }
+
+    #savetimebtn,
+    #resetbtn {
+        /* top: 80% */
+        height: 3rem;
+        width: 3rem;
+        font-size: 1rem;
+        top: 85%;
+    }
+
+    #savetimebtn {
+        left: 26%;
+
+    }
+
+    #resetbtn {
+        right: 25%;
+
+    }
+
+    #subModelNameTimer{
+        text-align: center;
+        width: 100%;
+    }
+    #s-timer{
+        display: unset;
+    }
+
+    #search-by-date-form{
+        position: absolute;
+        display: inline;
+        left: 31%;
+        z-index: 200;
+        top: 5px;
+    }
+    #render-date-activity{
+        position: absolute;
+        height: 50vh;
+        left: 7%;
+        width: 88%;
+        top: 4rem;
+        overflow: auto;
+        border-radius: 10px;
+        padding: 5px;
+        display: inline-block;
+        display: none;
+    }
+    #render-date-activity span{
+        display: inline;
+    }
+    #render-date-activity button{
+        position: fixed;
+        left: 84%;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background: rgb(85, 1, 1);
+        display: unset;
+        padding: 10px;
+        margin-bottom: 1rem;
+        color: white;
+        font-weight: 600;
+    }
+    #render-date-activity button:hover{
+        cursor: pointer;
+    }
+
+    .top-search-bar input{
+        width: 50%;
+        margin-left: 50%;
+    }
+}

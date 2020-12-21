@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>StudyBot</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+	<link rel="stylesheet" href="/styles/reset.css">
+	<link rel="stylesheet" href="/styles/hamberger.css">
+	<link rel="stylesheet" href="/styles/index.css">
+	<link rel="stylesheet" href="/styles/add-mdl-form.css">
+	<link rel="stylesheet" href="/styles/model.css">
+	<link rel="stylesheet" href="/styles/timer.css">
+	<link rel="stylesheet" href="/styles/mediaquery.css">
+
+</head>
+
+<body>
+
+	<!-- top sub-model header -->
+	<header>
+		<figure class="logo">
+			<a href="/"><img src="/images/orange-cyan-icon.svg" alt="timebot"></a>
+		</figure>
+	</header>
+
+	<h2 class="module" id="moduleLender"><%= lenderMname %></h2>
+	<!-- submodel search icon -->
+	<input type="checkbox" id="show-search-bar">
+	<label for="show-search-bar" class="show-s-bar" id="search-icon">
+		<img src="/images/search-white-36dp.svg" alt="<>">
+	</label>
+
+	<!-- submodel close search bar icon -->
+	<label class="close-search-bar" for="show-search-bar">
+		<img src="/images/clear-black-36dp.svg" alt="clear">
+	</label>
+	<form novalidate class="top-search-bar" id="search-bar">
+		<input type="text" id="search-model" class="form-control" placeholder="search" autofocus />
+	</form>
+
+	<!--submodel  hamburger section-->
+	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+	<label for="openSidebarMenu" class="sidebarIconToggle">
+		<div class="spinner diagonal part-1"></div>
+		<div class="spinner horizontal"></div>
+		<div class="spinner diagonal part-2"></div>
+	</label>
+
+	<!-- hambagar side navigation-->
+	<nav id="sidebarMenu">
+		<!-- <a href="">logout <span class="logout-label"></span></a> -->
+
+		<div class="side-menu-container sub-mdl-side-menu">
+
+			<div id="sub-model-stats" class="add-visibility">
+				<section class="today" id="now">
+					<h3 class="tTimeToday"> Today: ?</h3>
+					<ul id="analysedToday">
+
+					</ul>
+				</section>
+				<h3 id="totalTimeSpen">5hr 13 min</h3>
+				<ul id="totalTanlysed">
+
+				</ul>
+			</div>
+
+			<!-- submodel starts show btn -->
+			<button class="show-stats show-stats-submodels" onclick="clearElement(submodelstats)">Statistics</button>
+			<footer>
+				<small>&copy; max 2020</small>
+			</footer>
+
+		</div>
+
+	</nav>
+
+
+	<!-- main section -->
+
+	<main class="group">
+		<section class="container-dashboard " id="sub-container-dashboard">
+			<section class="ln-models sub-modules" id="submodels">
+
+
+				<h1 class="model model-4 is-visible" style="visibility: hidden;">
+					<a href="">e</a>
+				</h1>
+			</section>
+
+			<!-- submode add form -->
+
+			<form method="POST" id="submodel-form" class="add-visibility">
+				<input type="text" name="mainMname" placeholder="enter main model name" id="submodel-main-m-nput"
+					style="display: none;">
+				<input type="text" name="name" placeholder="Enter submodel name" id="modelnameinput" required autofocus>
+
+				<input type="submit" value="submit">
+
+			</form>
+
+			<button id="add-submodel" onclick="clearElement(addsubmodelform)">+</button>
+	</main>
+
+	<!-- sub model timmer -->
+	<div id="s-timer" class="add-visibility">
+		<section class="sub-stats-sec">
+			<button id="clear-timer-btn" onclick="clearElement(clearTimerBtn)"><img src="/images/close-white-36dp.svg"
+					alt="clear-timer-btn"></button>
+			<p id="subModelNameTimer"></p>
+			<div class="sub-timer">
+				<h1 class="timer" id="time-display">00 : 00 : 00</h1>
+
+				<div class="play-pause">
+					<input type="checkbox" id="playPauseCheckbox" name="playPauseCheckbox" class="setReset" checked />
+					<label for="playPauseCheckbox"></label>
+				</div>
+
+				<button id="savetimebtn">save</button>
+				<button id="resetbtn">reset</button>
+
+			</div>
+		</section>
+	</div>
+	<script src="/js/addform.js"></script>
+	<script src="/js/subindex.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+/* main reset */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+/* --- reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    outline: none;
+    font-family: 'Quicksand', sans-serif;
+}
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+body{
+  /* background-image: url("../images/bg.png"); */
+  /* background-color: #00bbd477; */
+  background-color: white;
+}
+
+/* cls */
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
