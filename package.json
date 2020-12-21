@@ -13,7 +13,7 @@
     "preserve": "npm run build && npm run serve-build",
     "serve": "node buildServer.js",
     "babel:preset": "npx -p @babel/core -p @babel/node babel-node --presets @babel/preset-env app/app.js",
-    "build": "babel dev src --out-dir lib ",
+    "build": "babel dev src --out-dir lib && babel  app.js --out-file server.js && copyfiles -u 1 public/**/**/* public/**/* public/* dist && workbox injectManifest workbox-config.js",
     "postbuild": "babel  app.js --out-file server.js ",
     "copy": "copyfiles -u 1 public/**/**/* public/**/* public/* dist",
     "babel-build-dev": "npx babel-node app/app.js",
