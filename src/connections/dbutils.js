@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 import mongoose from 'mongoose';
-import dbconfig from '../../config/keys';
+import DATABASEURL from '../../keys/mongo';
 
 const clientOption = {
   socketTimeoutMS: 30000,
@@ -12,7 +12,7 @@ const clientOption = {
 };
 
 async function initClientDbConnection() {
-  const db = mongoose.createConnection(dbconfig.mongoURL, clientOption);
+  const db = mongoose.createConnection(process.env.DATABASE_URL || DATABASEURL, clientOption);
   db.on("error", console.error.bind(console, "MongoDB Connection Error>> : "));
   await db.once("open", () => {
     console.log("MongoDB is UP 😎");
