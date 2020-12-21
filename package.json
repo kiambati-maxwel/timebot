@@ -46,7 +46,8 @@
     "express-http-to-https": "^1.1.4",
     "jquery": "^3.5.1",
     "mongoose": "^5.11.6",
-    "whatwg-fetch": "^3.5.0"
+    "whatwg-fetch": "^3.5.0",
+    "core-js": "^3.6.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
