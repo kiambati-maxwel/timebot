@@ -1,5 +1,5 @@
 const connectionString = {
-  mongoURL: 'mongodb://localhost'
+  mongoURL: "mongodb://localhost",
 };
 
 module.exports = connectionString;
