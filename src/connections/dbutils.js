@@ -12,10 +12,7 @@ const clientOption = {
 };
 
 async function initClientDbConnection() {
-  const db = mongoose.createConnection(
-    dbconfig.mongoURL || process.env.DATABASE_URL,
-    clientOption
-  );
+  const db = mongoose.createConnection(process.env.DATABASE_URL, clientOption);
   db.on("error", console.error.bind(console, "MongoDB Connection Error>> : "));
   await db.once("open", () => {
     console.log("MongoDB is UP 😎");
